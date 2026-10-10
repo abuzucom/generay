@@ -1,0 +1,7 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: payroll-close
+spec:
+  schedule: "0 18 * * 5"
+  timeZone: "America/New_York"

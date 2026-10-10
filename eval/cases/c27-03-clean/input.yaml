@@ -1,0 +1,9 @@
+groups:
+  - name: time
+    rules:
+      - alert: ClockOffsetHigh
+        expr: abs(node_timex_offset_seconds) > 0.05
+        for: 5m
+      - alert: ClockNotSynchronized
+        expr: node_timex_sync_status == 0
+        for: 5m

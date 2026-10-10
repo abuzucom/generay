@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C21.1"
+  ],
+  "expected_prescan": [
+    "C21.1"
+  ],
+  "expect_json": true,
+  "notes": "time.Duration of a bare integer is nanoseconds. A 30-second retry delay becomes 30 ns and hammers the endpoint."
+}

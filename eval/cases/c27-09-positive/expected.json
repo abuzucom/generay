@@ -1,0 +1,14 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.9",
+    "C27.15"
+  ],
+  "expected_prescan": [
+    "C27.15",
+    "C27.9"
+  ],
+  "expect_json": true,
+  "notes": "One government server and stratum offered as proof of accuracy."
+}

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chronyd
+spec:
+  containers:
+    - name: chrony
+      image: registry.example/chrony:4.5
+      securityContext:
+        capabilities:
+          add: ["SYS_TIME"]

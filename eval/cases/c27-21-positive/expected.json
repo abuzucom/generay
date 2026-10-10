@@ -1,0 +1,14 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.21",
+    "C17.5"
+  ],
+  "expected_prescan": [
+    "C17.5",
+    "C27.21"
+  ],
+  "expect_json": true,
+  "notes": "RMC status is ignored and a literal 18 s converts GPS time to UTC for a safety-relevant clock."
+}

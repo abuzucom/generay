@@ -1,0 +1,14 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.22",
+    "C27.15"
+  ],
+  "expected_prescan": [
+    "C27.15",
+    "C27.22"
+  ],
+  "expect_json": true,
+  "notes": "A GPS refclock marked trust and prefer can never be outvoted by two network sources."
+}

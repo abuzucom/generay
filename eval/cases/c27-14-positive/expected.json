@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.14"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "No timeout, one-second retries without backoff, and a hung boot when no server answers."
+}

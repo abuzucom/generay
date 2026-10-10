@@ -1,0 +1,14 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.7",
+    "C27.8"
+  ],
+  "expected_prescan": [
+    "C27.7",
+    "C27.8"
+  ],
+  "expect_json": true,
+  "notes": "An application trusts one pool server and the time gates payments."
+}

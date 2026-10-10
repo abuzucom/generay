@@ -1,0 +1,11 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C5.1",
+    "C5.3"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "The US federal fiscal year starts October 1 and FY labels use the ending year. Calendar quarters misfile every report."
+}

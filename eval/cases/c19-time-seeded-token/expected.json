@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C19.5"
+  ],
+  "expected_prescan": [
+    "C19.5"
+  ],
+  "expect_json": true,
+  "notes": "A time-seeded generator makes reset tokens predictable from the request time."
+}

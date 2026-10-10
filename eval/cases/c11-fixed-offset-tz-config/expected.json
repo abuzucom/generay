@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C11.5"
+  ],
+  "expected_prescan": [
+    "C11.5"
+  ],
+  "expect_json": true,
+  "notes": "EST5 never observes DST. The Friday payroll close runs an hour off for most of the year."
+}

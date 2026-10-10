@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C17.5"
+  ],
+  "expected_prescan": [
+    "C17.5"
+  ],
+  "expect_json": true,
+  "notes": "The GPS-UTC offset changes with each leap second. A literal 18 goes stale without warning."
+}

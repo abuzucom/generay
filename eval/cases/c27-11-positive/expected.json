@@ -1,0 +1,14 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.11",
+    "C27.15"
+  ],
+  "expected_prescan": [
+    "C27.11",
+    "C27.15"
+  ],
+  "expect_json": true,
+  "notes": "A token issuer trusts one unauthenticated source and accepts any later jump."
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C25.2"
+  ],
+  "expected_prescan": [
+    "C25.2"
+  ],
+  "expect_json": true,
+  "notes": "Any end user can set the server's now through the query string and extend the paid trial."
+}

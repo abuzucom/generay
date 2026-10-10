@@ -1,0 +1,11 @@
+{
+  "mode": "Contract",
+  "expected_verdict": "CONTRACT: GAPS",
+  "expected_checks": [
+    "C26.1",
+    "C14.6"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Names a local time that happens twice in New York and states no zone, anchor, or boundary rule."
+}

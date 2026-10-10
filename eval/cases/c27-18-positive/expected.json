@@ -1,0 +1,11 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.18",
+    "C18.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Lease validity depends on the steered wall clock instead of a monotonic clock plus fencing."
+}

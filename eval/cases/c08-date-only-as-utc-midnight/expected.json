@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C8.3"
+  ],
+  "expected_prescan": [
+    "C8.3"
+  ],
+  "expect_json": true,
+  "notes": "A date-only string parses as UTC midnight and displays a day early west of UTC."
+}

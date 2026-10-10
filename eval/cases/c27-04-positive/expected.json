@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.4",
+    "C27.9"
+  ],
+  "expected_prescan": [
+    "C27.9"
+  ],
+  "expect_json": true,
+  "notes": "Smeared and unsmeared sources disagree during a leap second on a metering host."
+}

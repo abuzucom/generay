@@ -1,0 +1,199 @@
+---
+name: time-review
+
+# Reusable PR time review. Adopters call it with every reference pinned to
+# a full commit SHA:
+#
+#   uses: abuzucom/generay/.github/workflows/time-review.yml@<full-commit-sha>
+#   with:
+#     time_ref: "<the same full-commit-sha>"
+#
+# The workflow checks out the base revision and reads the head revision from
+# git objects. It never executes pull request content. Pull request text
+# reaches scripts through environment variables only.
+
+"on":
+  workflow_call:
+    inputs:
+      pr_number:
+        description: "Pull request number."
+        required: true
+        type: number
+      base_sha:
+        description: "Full base commit SHA."
+        required: true
+        type: string
+      head_sha:
+        description: "Full head commit SHA."
+        required: true
+        type: string
+      pr_title:
+        description: "Pull request title. Review data only."
+        required: false
+        type: string
+        default: ""
+      pr_body:
+        description: "Pull request body. Review data only."
+        required: false
+        type: string
+        default: ""
+      time_ref:
+        description: "abuzucom/generay commit SHA for TIME.md, SYNC.md, and the ci/ adapter. Match the uses: pin."
+        required: true
+        type: string
+      fail_on_block:
+        description: "Fail the check on BLOCK or NEEDS-HUMAN."
+        required: false
+        type: boolean
+        default: true
+      exclude_paths:
+        description: "Whitespace-separated globs skipped by the deterministic prescan."
+        required: false
+        type: string
+        default: ""
+      max_chunks:
+        description: "Maximum review envelopes. Files past the limit become unreviewed and force NEEDS-HUMAN."
+        required: false
+        type: number
+        default: 20
+    secrets:
+      MODEL_API_KEY:
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    # A worst case of 20 chunks at two 600-second calls each exceeds any job
+    # bound. The model review step stops at 40 minutes. The remaining time lets
+    # the publish step post a blocking check run without a verdict.
+    timeout-minutes: 45
+    concurrency:
+      group: time-review-${{ github.repository }}-${{ inputs.pr_number }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout base revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: ${{ inputs.base_sha }}
+          # Full history brings the same-repository head commit into the
+          # object store without a checkout.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Checkout generay policy and adapter
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          repository: abuzucom/generay
+          ref: ${{ inputs.time_ref }}
+          path: .generay
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Build review envelopes
+        env:
+          BASE_SHA: ${{ inputs.base_sha }}
+          HEAD_SHA: ${{ inputs.head_sha }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          PR_TITLE: ${{ inputs.pr_title }}
+          PR_BODY: ${{ inputs.pr_body }}
+          EXCLUDE_PATHS: ${{ inputs.exclude_paths }}
+          MAX_CHUNKS: ${{ inputs.max_chunks }}
+        run: >-
+          python3 .generay/ci/build_pr_case.py
+          --repo . --base "$BASE_SHA" --head "$HEAD_SHA"
+          --pr-number "$PR_NUMBER" --exclude "$EXCLUDE_PATHS"
+          --max-chunks "$MAX_CHUNKS"
+          --out-dir "$RUNNER_TEMP/review"
+
+      - name: Run model review
+        timeout-minutes: 40
+        env:
+          MODEL_API_KEY: ${{ secrets.MODEL_API_KEY }}
+        run: >-
+          python3 .generay/ci/run_review.py review
+          --review-dir "$RUNNER_TEMP/review"
+          --policy .generay/TIME.md --policy .generay/SYNC.md
+
+      - name: Post review comment
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          PR_NUMBER: ${{ inputs.pr_number }}
+        with:
+          script: |
+            const fs = require('fs');
+            const path = `${process.env.RUNNER_TEMP}/review/report.md`;
+            const body = fs.readFileSync(path, 'utf8');
+            const issue_number = Number(process.env.PR_NUMBER);
+            const { owner, repo } = context.repo;
+            await github.rest.issues.createComment({ owner, repo, issue_number, body });
+
+      # A failed or timed-out review still publishes a blocking check run, so
+      # the gate never goes missing. A run cancelled for a newer head stays
+      # quiet.
+      - name: Publish time-review check run
+        if: ${{ !cancelled() }}
+        timeout-minutes: 2
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # v9.0.0
+        env:
+          HEAD_SHA: ${{ inputs.head_sha }}
+          FAIL_ON_BLOCK: ${{ inputs.fail_on_block }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        with:
+          script: |
+            const fs = require('fs');
+            let result = null;
+            let reportText = null;
+            try {
+              result = JSON.parse(fs.readFileSync(`${process.env.RUNNER_TEMP}/review/result.json`, 'utf8'));
+            } catch (error) {
+              core.warning(`time review result unavailable: ${error.message}`);
+            }
+            try {
+              const raw = fs.readFileSync(`${process.env.RUNNER_TEMP}/review/report.md`, 'utf8');
+              reportText = raw.length > 65000
+                ? raw.slice(0, 65000) + '\n\n... (report truncated to 65k characters)'
+                : raw;
+            } catch (error) {
+              core.warning(`time review report unavailable: ${error.message}`);
+            }
+            const blockingConclusion = process.env.FAIL_ON_BLOCK === 'true' ? 'failure' : 'neutral';
+            let conclusion;
+            let output;
+            if (result && typeof result.verdict === 'string') {
+              const blocking = ['BLOCK', 'NEEDS-HUMAN'].includes(result.verdict);
+              conclusion = blocking ? blockingConclusion : 'success';
+              output = {
+                title: `Generay time review: ${result.verdict}`,
+                summary: `Verdict ${result.verdict}.`,
+                text: reportText || undefined,
+              };
+            } else {
+              conclusion = blockingConclusion;
+              output = {
+                title: 'Generay time review: no verdict',
+                summary: `The review ended before a verdict. Workflow run: ${process.env.RUN_URL}`,
+                text: reportText || undefined,
+              };
+            }
+            await github.rest.checks.create({
+              ...context.repo,
+              name: 'time-review',
+              head_sha: process.env.HEAD_SHA,
+              status: 'completed',
+              conclusion,
+              output,
+            });
+
+      - name: Gate on verdict
+        env:
+          FAIL_ON_BLOCK: ${{ inputs.fail_on_block }}
+        run: python3 .generay/ci/run_review.py gate "$RUNNER_TEMP/review/result.json" --fail-on-block "$FAIL_ON_BLOCK"

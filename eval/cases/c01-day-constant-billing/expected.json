@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C1.2"
+  ],
+  "expected_prescan": [
+    "C1.2"
+  ],
+  "expect_json": true,
+  "notes": "Adding 86400 seconds keeps elapsed time, not local wall time. Across DST the billing run moves to 23:00 or 01:00."
+}

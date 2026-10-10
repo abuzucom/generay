@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.8"
+  ],
+  "expected_prescan": [
+    "C22.4",
+    "C27.8"
+  ],
+  "expect_json": true,
+  "notes": "Only the transmit timestamp is read. Leap indicator, stratum, Kiss-o'-Death, and origin are ignored."
+}

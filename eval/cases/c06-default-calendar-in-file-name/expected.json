@@ -1,0 +1,11 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C6.1",
+    "C9.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Calendar.getInstance follows the default locale and zone. A th-TH host writes Buddhist year 2569 into stored file names."
+}

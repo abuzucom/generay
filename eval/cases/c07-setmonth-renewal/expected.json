@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C7.2"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "setMonth overflows: a January 31 signup renews on March 3, then drifts. No month-end policy is stated."
+}

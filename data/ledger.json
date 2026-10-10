@@ -1,0 +1,2147 @@
+{
+  "schema_version": "1",
+  "note": "Machine-readable ledger. Every PA and BP maps to the checks that cover it. Every check names its class and detection method. scripts/check_ledger_coverage.py validates it.",
+  "classes": {
+    "C1": {
+      "title": "Calendar unit lengths",
+      "file": "docs/classes/C01-calendar-unit-lengths.md"
+    },
+    "C2": {
+      "title": "Leap years and inserted days",
+      "file": "docs/classes/C02-leap-years-and-inserted-days.md"
+    },
+    "C3": {
+      "title": "Period boundaries and attribution",
+      "file": "docs/classes/C03-period-boundaries-and-attribution.md"
+    },
+    "C4": {
+      "title": "Weeks, weekdays, weekends, holidays",
+      "file": "docs/classes/C04-weeks-weekdays-weekends-holidays.md"
+    },
+    "C5": {
+      "title": "Fiscal and tax calendars",
+      "file": "docs/classes/C05-fiscal-and-tax-calendars.md"
+    },
+    "C6": {
+      "title": "Calendar systems and historical dates",
+      "file": "docs/classes/C06-calendar-systems-and-historical-dates.md"
+    },
+    "C7": {
+      "title": "Date arithmetic and composition",
+      "file": "docs/classes/C07-date-arithmetic-and-composition.md"
+    },
+    "C8": {
+      "title": "Meaning of a time value",
+      "file": "docs/classes/C08-meaning-of-a-time-value.md"
+    },
+    "C9": {
+      "title": "Host, environment, and stack zone handling",
+      "file": "docs/classes/C09-host-environment-and-stack-zone-handling.md"
+    },
+    "C10": {
+      "title": "Zone rules over time and tz data",
+      "file": "docs/classes/C10-zone-rules-over-time-and-tz-data.md"
+    },
+    "C11": {
+      "title": "DST behavior",
+      "file": "docs/classes/C11-dst-behavior.md"
+    },
+    "C12": {
+      "title": "Offsets and differences between zones",
+      "file": "docs/classes/C12-offsets-and-differences-between-zones.md"
+    },
+    "C13": {
+      "title": "Zone names, abbreviations, and GMT",
+      "file": "docs/classes/C13-zone-names-abbreviations-and-gmt.md"
+    },
+    "C14": {
+      "title": "Determining the governing zone",
+      "file": "docs/classes/C14-determining-the-governing-zone.md"
+    },
+    "C15": {
+      "title": "Clock accuracy and client-server skew",
+      "file": "docs/classes/C15-clock-accuracy-and-client-server-skew.md"
+    },
+    "C16": {
+      "title": "Clock rates, frames, frequencies, and sync",
+      "file": "docs/classes/C16-clock-rates-frames-frequencies-and-sync.md"
+    },
+    "C17": {
+      "title": "Time scales, leap seconds, and Unix time",
+      "file": "docs/classes/C17-time-scales-leap-seconds-and-unix-time.md"
+    },
+    "C18": {
+      "title": "Elapsed time, timers, sleeps, and pauses",
+      "file": "docs/classes/C18-elapsed-time-timers-sleeps-and-pauses.md"
+    },
+    "C19": {
+      "title": "Reading \"now\": equality, order, uniqueness",
+      "file": "docs/classes/C19-reading-now-equality-order-uniqueness.md"
+    },
+    "C20": {
+      "title": "Precision, resolution, and rounding",
+      "file": "docs/classes/C20-precision-resolution-and-rounding.md"
+    },
+    "C21": {
+      "title": "Duration units and negative durations",
+      "file": "docs/classes/C21-duration-units-and-negative-durations.md"
+    },
+    "C22": {
+      "title": "Representable ranges and storage types",
+      "file": "docs/classes/C22-representable-ranges-and-storage-types.md"
+    },
+    "C23": {
+      "title": "Parsing input",
+      "file": "docs/classes/C23-parsing-input.md"
+    },
+    "C24": {
+      "title": "Formatting and display",
+      "file": "docs/classes/C24-formatting-and-display.md"
+    },
+    "C25": {
+      "title": "Testability and time control",
+      "file": "docs/classes/C25-testability-and-time-control.md"
+    },
+    "C26": {
+      "title": "Requirements, intent, and operations",
+      "file": "docs/classes/C26-requirements-intent-and-operations.md"
+    },
+    "C27": {
+      "title": "Time synchronization",
+      "file": "docs/classes/C27-time-synchronization.md"
+    }
+  },
+  "checks": {
+    "C1.1": {
+      "title": "Hour length varies",
+      "class": "C1",
+      "method": "both"
+    },
+    "C1.2": {
+      "title": "Day length varies",
+      "class": "C1",
+      "method": "both"
+    },
+    "C1.3": {
+      "title": "Month length varies",
+      "class": "C1",
+      "method": "both"
+    },
+    "C1.4": {
+      "title": "Year length varies",
+      "class": "C1",
+      "method": "both"
+    },
+    "C2.1": {
+      "title": "Leap-year rules",
+      "class": "C2",
+      "method": "heuristic"
+    },
+    "C2.2": {
+      "title": "Leap-year spacing and recurring February 29",
+      "class": "C2",
+      "method": "heuristic"
+    },
+    "C2.3": {
+      "title": "February 29 validity",
+      "class": "C2",
+      "method": "both"
+    },
+    "C2.4": {
+      "title": "Inserted time outside Gregorian leap years",
+      "class": "C2",
+      "method": "llm"
+    },
+    "C2.5": {
+      "title": "Spreadsheet phantom leap day",
+      "class": "C2",
+      "method": "heuristic"
+    },
+    "C3.1": {
+      "title": "Spans that cross period boundaries",
+      "class": "C3",
+      "method": "llm"
+    },
+    "C3.2": {
+      "title": "Rolling windows versus calendar periods",
+      "class": "C3",
+      "method": "llm"
+    },
+    "C3.3": {
+      "title": "Boundaries depend on the zone",
+      "class": "C3",
+      "method": "both"
+    },
+    "C3.4": {
+      "title": "Weeks against months",
+      "class": "C3",
+      "method": "heuristic"
+    },
+    "C3.5": {
+      "title": "Day boundaries other than midnight",
+      "class": "C3",
+      "method": "llm"
+    },
+    "C3.6": {
+      "title": "End of day and range closure",
+      "class": "C3",
+      "method": "heuristic"
+    },
+    "C4.1": {
+      "title": "Weekday sequence and derivation",
+      "class": "C4",
+      "method": "both"
+    },
+    "C4.2": {
+      "title": "Weekday numbering across systems",
+      "class": "C4",
+      "method": "heuristic"
+    },
+    "C4.3": {
+      "title": "Week start and week numbering",
+      "class": "C4",
+      "method": "both"
+    },
+    "C4.4": {
+      "title": "Weekends",
+      "class": "C4",
+      "method": "heuristic"
+    },
+    "C4.5": {
+      "title": "Holidays and business-day calendars",
+      "class": "C4",
+      "method": "both"
+    },
+    "C5.1": {
+      "title": "Fiscal and tax year starts",
+      "class": "C5",
+      "method": "both"
+    },
+    "C5.2": {
+      "title": "Fiscal period structure",
+      "class": "C5",
+      "method": "llm"
+    },
+    "C5.3": {
+      "title": "Fiscal labels and quarters",
+      "class": "C5",
+      "method": "llm"
+    },
+    "C5.4": {
+      "title": "Multi-entity calendars and consolidation",
+      "class": "C5",
+      "method": "llm"
+    },
+    "C6.1": {
+      "title": "Several calendars in use",
+      "class": "C6",
+      "method": "both"
+    },
+    "C6.2": {
+      "title": "Observational and provisional calendars",
+      "class": "C6",
+      "method": "llm"
+    },
+    "C6.3": {
+      "title": "Calendar reform and regional adoption",
+      "class": "C6",
+      "method": "llm"
+    },
+    "C6.4": {
+      "title": "Skipped and repeated local dates",
+      "class": "C6",
+      "method": "both"
+    },
+    "C6.5": {
+      "title": "Year numbering, eras, and year starts",
+      "class": "C6",
+      "method": "llm"
+    },
+    "C6.6": {
+      "title": "Uncertain historical chronology",
+      "class": "C6",
+      "method": "llm"
+    },
+    "C7.1": {
+      "title": "Elapsed versus calendar meaning",
+      "class": "C7",
+      "method": "both"
+    },
+    "C7.2": {
+      "title": "Month and year addition and recurrence",
+      "class": "C7",
+      "method": "both"
+    },
+    "C7.3": {
+      "title": "Gaps, overlaps, and time-of-day wrap",
+      "class": "C7",
+      "method": "heuristic"
+    },
+    "C7.4": {
+      "title": "Building dates from parts",
+      "class": "C7",
+      "method": "heuristic"
+    },
+    "C7.5": {
+      "title": "Subtracting timestamps",
+      "class": "C7",
+      "method": "both"
+    },
+    "C7.6": {
+      "title": "Business-time arithmetic",
+      "class": "C7",
+      "method": "llm"
+    },
+    "C7.7": {
+      "title": "Published and ported date algorithms",
+      "class": "C7",
+      "method": "heuristic"
+    },
+    "C8.1": {
+      "title": "Which event a timestamp records",
+      "class": "C8",
+      "method": "both"
+    },
+    "C8.2": {
+      "title": "Instants, local values, dates, and times are different types",
+      "class": "C8",
+      "method": "llm"
+    },
+    "C8.3": {
+      "title": "Dates are not UTC midnight",
+      "class": "C8",
+      "method": "heuristic"
+    },
+    "C8.4": {
+      "title": "Offsets are not zones",
+      "class": "C8",
+      "method": "both"
+    },
+    "C8.5": {
+      "title": "Zero offsets and unknown local offset",
+      "class": "C8",
+      "method": "llm"
+    },
+    "C9.1": {
+      "title": "Code that reads the host zone",
+      "class": "C9",
+      "method": "both"
+    },
+    "C9.2": {
+      "title": "Production zone changes and zone-less stored data",
+      "class": "C9",
+      "method": "both"
+    },
+    "C9.3": {
+      "title": "Implicit conversions between stack layers",
+      "class": "C9",
+      "method": "both"
+    },
+    "C9.4": {
+      "title": "Time decisions left to defaults or skipped",
+      "class": "C9",
+      "method": "llm"
+    },
+    "C10.1": {
+      "title": "Zone rules and offsets change",
+      "class": "C10",
+      "method": "both"
+    },
+    "C10.2": {
+      "title": "Future local commitments and their anchors",
+      "class": "C10",
+      "method": "llm"
+    },
+    "C10.3": {
+      "title": "tz data copies and update latency",
+      "class": "C10",
+      "method": "both"
+    },
+    "C10.4": {
+      "title": "Zone identifiers change",
+      "class": "C10",
+      "method": "heuristic"
+    },
+    "C10.5": {
+      "title": "Hand-maintained zone data",
+      "class": "C10",
+      "method": "heuristic"
+    },
+    "C10.6": {
+      "title": "Historical zone data",
+      "class": "C10",
+      "method": "heuristic"
+    },
+    "C11.1": {
+      "title": "Transition dates and times move",
+      "class": "C11",
+      "method": "heuristic"
+    },
+    "C11.2": {
+      "title": "Shift size and DST flags",
+      "class": "C11",
+      "method": "heuristic"
+    },
+    "C11.3": {
+      "title": "Transitions differ by zone and instant",
+      "class": "C11",
+      "method": "both"
+    },
+    "C11.4": {
+      "title": "DST periods are not one per calendar year",
+      "class": "C11",
+      "method": "heuristic"
+    },
+    "C11.5": {
+      "title": "Fixed offsets standing in for DST zones",
+      "class": "C11",
+      "method": "heuristic"
+    },
+    "C11.6": {
+      "title": "Skipped and repeated local times",
+      "class": "C11",
+      "method": "both"
+    },
+    "C12.1": {
+      "title": "Differences between zones vary",
+      "class": "C12",
+      "method": "both"
+    },
+    "C12.2": {
+      "title": "Offsets that are not whole hours",
+      "class": "C12",
+      "method": "heuristic"
+    },
+    "C12.3": {
+      "title": "Offsets with seconds and representation limits",
+      "class": "C12",
+      "method": "heuristic"
+    },
+    "C12.4": {
+      "title": "Offset range, zone count, and geography",
+      "class": "C12",
+      "method": "heuristic"
+    },
+    "C13.1": {
+      "title": "GMT is not UTC, and the UK is not on GMT",
+      "class": "C13",
+      "method": "both"
+    },
+    "C13.2": {
+      "title": "Zone strings with inverted signs and silent fallbacks",
+      "class": "C13",
+      "method": "heuristic"
+    },
+    "C13.3": {
+      "title": "Abbreviations are not identifiers",
+      "class": "C13",
+      "method": "heuristic"
+    },
+    "C14.1": {
+      "title": "Values crossing the client-server boundary",
+      "class": "C14",
+      "method": "both"
+    },
+    "C14.2": {
+      "title": "Capturing the user's zone",
+      "class": "C14",
+      "method": "heuristic"
+    },
+    "C14.3": {
+      "title": "Zones from addresses, regions, and official status",
+      "class": "C14",
+      "method": "both"
+    },
+    "C14.4": {
+      "title": "Zones from networks and phone numbers",
+      "class": "C14",
+      "method": "both"
+    },
+    "C14.5": {
+      "title": "Nearby places and service areas",
+      "class": "C14",
+      "method": "llm"
+    },
+    "C14.6": {
+      "title": "Which party's zone governs each decision",
+      "class": "C14",
+      "method": "llm"
+    },
+    "C15.1": {
+      "title": "Clocks are wrong and jump",
+      "class": "C15",
+      "method": "both"
+    },
+    "C15.2": {
+      "title": "Large clock errors and destructive actions",
+      "class": "C15",
+      "method": "both"
+    },
+    "C15.3": {
+      "title": "Clock error changes over time",
+      "class": "C15",
+      "method": "both"
+    },
+    "C15.4": {
+      "title": "Comparing client and server times",
+      "class": "C15",
+      "method": "both"
+    },
+    "C15.5": {
+      "title": "Large client skew and recovery",
+      "class": "C15",
+      "method": "both"
+    },
+    "C15.6": {
+      "title": "Staying correct when client time is illogical",
+      "class": "C15",
+      "method": "llm"
+    },
+    "C16.1": {
+      "title": "Clocks tick at different rates",
+      "class": "C16",
+      "method": "llm"
+    },
+    "C16.2": {
+      "title": "Relativity and time scales on moving platforms",
+      "class": "C16",
+      "method": "llm"
+    },
+    "C16.3": {
+      "title": "A clock's context changes during a series",
+      "class": "C16",
+      "method": "llm"
+    },
+    "C16.4": {
+      "title": "Device frequencies that are fractional or variable",
+      "class": "C16",
+      "method": "heuristic"
+    },
+    "C16.5": {
+      "title": "Synchronizing streams and keeping them synchronized",
+      "class": "C16",
+      "method": "llm"
+    },
+    "C17.1": {
+      "title": "Minutes with 61 or 59 seconds",
+      "class": "C17",
+      "method": "heuristic"
+    },
+    "C17.2": {
+      "title": "Leap-second data cannot be predicted and expires",
+      "class": "C17",
+      "method": "heuristic"
+    },
+    "C17.3": {
+      "title": "Unix time is an encoding of UTC, not a count of seconds",
+      "class": "C17",
+      "method": "llm"
+    },
+    "C17.4": {
+      "title": "The epoch is UTC midnight, and epoch arithmetic is easy to get",
+      "class": "C17",
+      "method": "heuristic"
+    },
+    "C17.5": {
+      "title": "Offsets between time scales",
+      "class": "C17",
+      "method": "heuristic"
+    },
+    "C18.1": {
+      "title": "Measuring elapsed and CPU time",
+      "class": "C18",
+      "method": "heuristic"
+    },
+    "C18.2": {
+      "title": "Timers and tick counts are not clocks",
+      "class": "C18",
+      "method": "heuristic"
+    },
+    "C18.3": {
+      "title": "Pauses and long gaps between steps",
+      "class": "C18",
+      "method": "both"
+    },
+    "C18.4": {
+      "title": "Sleeps return late, early, or on another clock",
+      "class": "C18",
+      "method": "heuristic"
+    },
+    "C18.5": {
+      "title": "Scheduling at a target time",
+      "class": "C18",
+      "method": "heuristic"
+    },
+    "C18.6": {
+      "title": "Deliberate timer interference",
+      "class": "C18",
+      "method": "llm"
+    },
+    "C19.1": {
+      "title": "Consecutive reads: equal or different",
+      "class": "C19",
+      "method": "heuristic"
+    },
+    "C19.2": {
+      "title": "Reads are not strictly increasing, and monotonic has a scope",
+      "class": "C19",
+      "method": "heuristic"
+    },
+    "C19.3": {
+      "title": "Time read by code moves backward",
+      "class": "C19",
+      "method": "both"
+    },
+    "C19.4": {
+      "title": "Stored timestamps arrive out of order",
+      "class": "C19",
+      "method": "heuristic"
+    },
+    "C19.5": {
+      "title": "Timestamps as identifiers and tokens",
+      "class": "C19",
+      "method": "heuristic"
+    },
+    "C19.6": {
+      "title": "Ordering events across systems",
+      "class": "C19",
+      "method": "llm"
+    },
+    "C19.7": {
+      "title": "Type precision versus clock resolution",
+      "class": "C19",
+      "method": "both"
+    },
+    "C20.1": {
+      "title": "Units of numeric timestamps",
+      "class": "C20",
+      "method": "heuristic"
+    },
+    "C20.2": {
+      "title": "Precision lost between layers",
+      "class": "C20",
+      "method": "both"
+    },
+    "C20.3": {
+      "title": "Mixed precision in one field",
+      "class": "C20",
+      "method": "llm"
+    },
+    "C20.4": {
+      "title": "Floating-point epochs",
+      "class": "C20",
+      "method": "heuristic"
+    },
+    "C20.5": {
+      "title": "Reducing precision: truncation and rounding",
+      "class": "C20",
+      "method": "heuristic"
+    },
+    "C21.1": {
+      "title": "Units of numeric durations",
+      "class": "C21",
+      "method": "heuristic"
+    },
+    "C21.2": {
+      "title": "Decimal hours versus clock-style durations",
+      "class": "C21",
+      "method": "llm"
+    },
+    "C21.3": {
+      "title": "Negative and zero durations",
+      "class": "C21",
+      "method": "both"
+    },
+    "C22.1": {
+      "title": "Range limits of types, libraries, and formats",
+      "class": "C22",
+      "method": "heuristic"
+    },
+    "C22.2": {
+      "title": "Valid year numbers",
+      "class": "C22",
+      "method": "both"
+    },
+    "C22.3": {
+      "title": "Sentinels and special values",
+      "class": "C22",
+      "method": "heuristic"
+    },
+    "C22.4": {
+      "title": "Epochs differ between platforms",
+      "class": "C22",
+      "method": "heuristic"
+    },
+    "C22.5": {
+      "title": "Year width in date strings",
+      "class": "C22",
+      "method": "heuristic"
+    },
+    "C22.6": {
+      "title": "\"Timestamp\" means different things by product",
+      "class": "C22",
+      "method": "heuristic"
+    },
+    "C23.1": {
+      "title": "Declare the format and unit of every input",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.2": {
+      "title": "One source, many shapes, and strings compared as dates",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.3": {
+      "title": "Numeric field order",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.4": {
+      "title": "Two-digit years",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.5": {
+      "title": "Parsing mechanics",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.6": {
+      "title": "Hours of 24 and above, and durations in time-of-day types",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.7": {
+      "title": "Duration, partial-date, and interval grammars",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C23.8": {
+      "title": "Type inference that creates or destroys dates",
+      "class": "C23",
+      "method": "heuristic"
+    },
+    "C24.1": {
+      "title": "Display strings are not data",
+      "class": "C24",
+      "method": "both"
+    },
+    "C24.2": {
+      "title": "Locale order, calendars, and digits in output",
+      "class": "C24",
+      "method": "heuristic"
+    },
+    "C24.3": {
+      "title": "Displayed precision and offsets",
+      "class": "C24",
+      "method": "llm"
+    },
+    "C24.4": {
+      "title": "Displayed year differs from the stored year",
+      "class": "C24",
+      "method": "heuristic"
+    },
+    "C24.5": {
+      "title": "Formatting mechanics",
+      "class": "C24",
+      "method": "heuristic"
+    },
+    "C24.6": {
+      "title": "Midnight, noon, and 12-hour clocks",
+      "class": "C24",
+      "method": "heuristic"
+    },
+    "C25.1": {
+      "title": "Injectable clocks and one read per operation",
+      "class": "C25",
+      "method": "heuristic"
+    },
+    "C25.2": {
+      "title": "Production as-of mechanisms and overrides",
+      "class": "C25",
+      "method": "heuristic"
+    },
+    "C25.3": {
+      "title": "The dates tests must cover",
+      "class": "C25",
+      "method": "both"
+    },
+    "C25.4": {
+      "title": "Devices whose zone and date change",
+      "class": "C25",
+      "method": "llm"
+    },
+    "C26.1": {
+      "title": "Complete time-sensitive requirements",
+      "class": "C26",
+      "method": "llm"
+    },
+    "C26.2": {
+      "title": "Deliberate date and timer misbehavior",
+      "class": "C26",
+      "method": "both"
+    },
+    "C26.3": {
+      "title": "Time-related monitoring",
+      "class": "C26",
+      "method": "llm"
+    },
+    "C27.1": {
+      "title": "Time sync is best effort, not a guarantee",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.2": {
+      "title": "Large offsets, startup stepping, and authenticated time",
+      "class": "C27",
+      "method": "heuristic"
+    },
+    "C27.3": {
+      "title": "Fleet sync sources and coverage",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.4": {
+      "title": "Slewing, smearing, and precision sources",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.5": {
+      "title": "Reference loss, holdover, and resynchronization",
+      "class": "C27",
+      "method": "llm"
+    },
+    "C27.6": {
+      "title": "Sync differs by platform and environment",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.7": {
+      "title": "Public pools are not authoritative time sources",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.8": {
+      "title": "An NTP reply is a measurement with an error bound",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.9": {
+      "title": "Government and national servers: stratum is not authority",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.10": {
+      "title": "Nearest and lowest latency is not best",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.11": {
+      "title": "Servers and attackers can shift time on purpose",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.12": {
+      "title": "One government or operator is a single point of failure",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.13": {
+      "title": "Sync must work over IPv6 and needed ports, not just IPv4",
+      "class": "C27",
+      "method": "heuristic"
+    },
+    "C27.14": {
+      "title": "Servers stay silent, refuse, and rate-limit",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.15": {
+      "title": "One or two sources cannot vote",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.16": {
+      "title": "NTP does not replace the RTC, GNSS, or other sources",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.17": {
+      "title": "Time distribution needs a hierarchy, not every node on its own",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.18": {
+      "title": "External UTC is not the right clock for every job",
+      "class": "C27",
+      "method": "llm"
+    },
+    "C27.19": {
+      "title": "GPS is not always available or right",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.20": {
+      "title": "GPS hardware does not mean GPS sets the clock",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.21": {
+      "title": "A GPS fix can still give the wrong time",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.22": {
+      "title": "No single source should always win, including GPS",
+      "class": "C27",
+      "method": "both"
+    },
+    "C27.23": {
+      "title": "Time services are attack surface and must be secured",
+      "class": "C27",
+      "method": "heuristic"
+    },
+    "C27.24": {
+      "title": "RTC-only operation must be designed",
+      "class": "C27",
+      "method": "both"
+    }
+  },
+  "problems": {
+    "PA-1": {
+      "primary_class": "C1",
+      "checks": [
+        "C1.2",
+        "C7.1"
+      ]
+    },
+    "PA-2": {
+      "primary_class": "C1",
+      "checks": [
+        "C1.3",
+        "C2.1",
+        "C2.3",
+        "C5.2",
+        "C6.1",
+        "C6.3",
+        "C7.2"
+      ]
+    },
+    "PA-3": {
+      "primary_class": "C1",
+      "checks": [
+        "C1.4",
+        "C4.3",
+        "C5.2",
+        "C6.1",
+        "C6.3",
+        "C6.5",
+        "C7.2",
+        "C24.4"
+      ]
+    },
+    "PA-4": {
+      "primary_class": "C1",
+      "checks": [
+        "C2.3",
+        "C2.5",
+        "C3.6",
+        "C6.3",
+        "C25.3"
+      ]
+    },
+    "PA-5": {
+      "primary_class": "C3",
+      "checks": [
+        "C1.2",
+        "C3.1",
+        "C3.2",
+        "C3.3",
+        "C3.6",
+        "C4.3",
+        "C5.2"
+      ]
+    },
+    "PA-6": {
+      "primary_class": "C3",
+      "checks": [
+        "C3.1",
+        "C3.4",
+        "C4.3"
+      ]
+    },
+    "PA-7": {
+      "primary_class": "C3",
+      "checks": [
+        "C3.1",
+        "C3.3",
+        "C5.1",
+        "C24.4"
+      ]
+    },
+    "PA-8": {
+      "primary_class": "C9",
+      "checks": [
+        "C9.1",
+        "C13.1"
+      ]
+    },
+    "PA-9": {
+      "primary_class": "C10",
+      "checks": [
+        "C10.1",
+        "C10.2",
+        "C10.3",
+        "C11.1"
+      ]
+    },
+    "PA-10": {
+      "primary_class": "C9",
+      "checks": [
+        "C9.2"
+      ]
+    },
+    "PA-11": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.1",
+        "C18.1",
+        "C19.5",
+        "C27.1",
+        "C27.3"
+      ]
+    },
+    "PA-12": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.2",
+        "C18.5",
+        "C19.4",
+        "C19.5",
+        "C27.2"
+      ]
+    },
+    "PA-13": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.3",
+        "C17.5",
+        "C18.3",
+        "C27.3"
+      ]
+    },
+    "PA-14": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.4",
+        "C19.6"
+      ]
+    },
+    "PA-15": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.5"
+      ]
+    },
+    "PA-16": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.3",
+        "C27.3"
+      ]
+    },
+    "PA-17": {
+      "primary_class": "C14",
+      "checks": [
+        "C8.3",
+        "C14.1",
+        "C14.2",
+        "C14.6"
+      ]
+    },
+    "PA-18": {
+      "primary_class": "C22",
+      "checks": [
+        "C22.1",
+        "C22.3"
+      ]
+    },
+    "PA-19": {
+      "primary_class": "C6",
+      "checks": [
+        "C6.3",
+        "C6.5",
+        "C6.6",
+        "C10.2",
+        "C10.6",
+        "C22.1",
+        "C22.3",
+        "C22.4",
+        "C23.5",
+        "C24.4"
+      ]
+    },
+    "PA-20": {
+      "primary_class": "C16",
+      "checks": [
+        "C16.1",
+        "C16.2",
+        "C17.1",
+        "C18.1",
+        "C18.2",
+        "C27.4"
+      ]
+    },
+    "PA-21": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.1",
+        "C18.2",
+        "C18.3",
+        "C18.4"
+      ]
+    },
+    "PA-22": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.3",
+        "C19.3"
+      ]
+    },
+    "PA-23": {
+      "primary_class": "C20",
+      "checks": [
+        "C18.3",
+        "C19.5",
+        "C20.1",
+        "C20.2",
+        "C20.4"
+      ]
+    },
+    "PA-24": {
+      "primary_class": "C20",
+      "checks": [
+        "C19.5",
+        "C19.7",
+        "C20.2",
+        "C23.5"
+      ]
+    },
+    "PA-25": {
+      "primary_class": "C25",
+      "checks": [
+        "C9.1",
+        "C25.1",
+        "C25.2"
+      ]
+    },
+    "PA-26": {
+      "primary_class": "C25",
+      "checks": [
+        "C25.2"
+      ]
+    },
+    "PA-27": {
+      "primary_class": "C23",
+      "checks": [
+        "C13.3",
+        "C23.1",
+        "C23.3",
+        "C23.4"
+      ]
+    },
+    "PA-28": {
+      "primary_class": "C23",
+      "checks": [
+        "C8.5",
+        "C23.2"
+      ]
+    },
+    "PA-29": {
+      "primary_class": "C20",
+      "checks": [
+        "C20.3"
+      ]
+    },
+    "PA-30": {
+      "primary_class": "C19",
+      "checks": [
+        "C19.5"
+      ]
+    },
+    "PA-31": {
+      "primary_class": "C8",
+      "checks": [
+        "C8.1"
+      ]
+    },
+    "PA-32": {
+      "primary_class": "C24",
+      "checks": [
+        "C23.3",
+        "C24.1",
+        "C24.2"
+      ]
+    },
+    "PA-33": {
+      "primary_class": "C12",
+      "checks": [
+        "C10.1",
+        "C12.1"
+      ]
+    },
+    "PA-34": {
+      "primary_class": "C10",
+      "checks": [
+        "C10.2",
+        "C10.3"
+      ]
+    },
+    "PA-35": {
+      "primary_class": "C10",
+      "checks": [
+        "C10.2",
+        "C10.3"
+      ]
+    },
+    "PA-36": {
+      "primary_class": "C11",
+      "checks": [
+        "C11.1",
+        "C11.2",
+        "C11.4",
+        "C11.6"
+      ]
+    },
+    "PA-37": {
+      "primary_class": "C11",
+      "checks": [
+        "C11.3"
+      ]
+    },
+    "PA-38": {
+      "primary_class": "C11",
+      "checks": [
+        "C1.2",
+        "C11.2"
+      ]
+    },
+    "PA-39": {
+      "primary_class": "C1",
+      "checks": [
+        "C1.3",
+        "C5.2",
+        "C6.1",
+        "C6.2",
+        "C6.3"
+      ]
+    },
+    "PA-40": {
+      "primary_class": "C6",
+      "checks": [
+        "C1.2",
+        "C6.4",
+        "C6.6"
+      ]
+    },
+    "PA-41": {
+      "primary_class": "C6",
+      "checks": [
+        "C4.3",
+        "C6.1",
+        "C6.5"
+      ]
+    },
+    "PA-42": {
+      "primary_class": "C2",
+      "checks": [
+        "C1.4",
+        "C2.1"
+      ]
+    },
+    "PA-43": {
+      "primary_class": "C2",
+      "checks": [
+        "C2.3",
+        "C2.4",
+        "C2.5",
+        "C6.3"
+      ]
+    },
+    "PA-44": {
+      "primary_class": "C7",
+      "checks": [
+        "C7.1",
+        "C7.3",
+        "C7.6"
+      ]
+    },
+    "PA-45": {
+      "primary_class": "C1",
+      "checks": [
+        "C1.3",
+        "C3.3",
+        "C5.2",
+        "C6.2",
+        "C6.3",
+        "C6.4"
+      ]
+    },
+    "PA-46": {
+      "primary_class": "C17",
+      "checks": [
+        "C16.1",
+        "C17.1",
+        "C17.3",
+        "C17.5"
+      ]
+    },
+    "PA-47": {
+      "primary_class": "C17",
+      "checks": [
+        "C17.4"
+      ]
+    },
+    "PA-48": {
+      "primary_class": "C4",
+      "checks": [
+        "C4.1",
+        "C4.2",
+        "C4.4",
+        "C4.5",
+        "C6.3"
+      ]
+    },
+    "PA-49": {
+      "primary_class": "C12",
+      "checks": [
+        "C12.4"
+      ]
+    },
+    "PA-50": {
+      "primary_class": "C25",
+      "checks": [
+        "C25.4"
+      ]
+    },
+    "PA-51": {
+      "primary_class": "C12",
+      "checks": [
+        "C12.3"
+      ]
+    },
+    "PA-52": {
+      "primary_class": "C10",
+      "checks": [
+        "C10.1",
+        "C10.4",
+        "C10.5"
+      ]
+    },
+    "PA-53": {
+      "primary_class": "C19",
+      "checks": [
+        "C7.4",
+        "C19.1"
+      ]
+    },
+    "PA-54": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.5"
+      ]
+    },
+    "PA-55": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.1"
+      ]
+    },
+    "PA-56": {
+      "primary_class": "C4",
+      "checks": [
+        "C3.1",
+        "C4.3"
+      ]
+    },
+    "PA-57": {
+      "primary_class": "C3",
+      "checks": [
+        "C3.5",
+        "C23.6"
+      ]
+    },
+    "PA-58": {
+      "primary_class": "C4",
+      "checks": [
+        "C1.2",
+        "C3.5",
+        "C4.5"
+      ]
+    },
+    "PA-59": {
+      "primary_class": "C4",
+      "checks": [
+        "C4.4",
+        "C4.5"
+      ]
+    },
+    "PA-60": {
+      "primary_class": "C19",
+      "checks": [
+        "C19.6"
+      ]
+    },
+    "PA-61": {
+      "primary_class": "C11",
+      "checks": [
+        "C11.3"
+      ]
+    },
+    "PA-62": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.4",
+        "C18.5"
+      ]
+    },
+    "PA-63": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.4"
+      ]
+    },
+    "PA-64": {
+      "primary_class": "C17",
+      "checks": [
+        "C17.1",
+        "C21.2"
+      ]
+    },
+    "PA-65": {
+      "primary_class": "C19",
+      "checks": [
+        "C19.2",
+        "C19.4"
+      ]
+    },
+    "PA-66": {
+      "primary_class": "C13",
+      "checks": [
+        "C13.1",
+        "C13.2"
+      ]
+    },
+    "PA-67": {
+      "primary_class": "C13",
+      "checks": [
+        "C13.1",
+        "C13.3",
+        "C14.3"
+      ]
+    },
+    "PA-68": {
+      "primary_class": "C19",
+      "checks": [
+        "C19.3"
+      ]
+    },
+    "PA-69": {
+      "primary_class": "C7",
+      "checks": [
+        "C7.1",
+        "C7.2",
+        "C7.5"
+      ]
+    },
+    "PA-70": {
+      "primary_class": "C7",
+      "checks": [
+        "C7.5"
+      ]
+    },
+    "PA-71": {
+      "primary_class": "C23",
+      "checks": [
+        "C23.6"
+      ]
+    },
+    "PA-72": {
+      "primary_class": "C22",
+      "checks": [
+        "C6.5",
+        "C22.1",
+        "C22.2"
+      ]
+    },
+    "PA-73": {
+      "primary_class": "C24",
+      "checks": [
+        "C24.1",
+        "C24.3"
+      ]
+    },
+    "PA-74": {
+      "primary_class": "C24",
+      "checks": [
+        "C24.4"
+      ]
+    },
+    "PA-75": {
+      "primary_class": "C24",
+      "checks": [
+        "C24.4"
+      ]
+    },
+    "PA-76": {
+      "primary_class": "C22",
+      "checks": [
+        "C22.5"
+      ]
+    },
+    "PA-77": {
+      "primary_class": "C7",
+      "checks": [
+        "C7.3",
+        "C7.4"
+      ]
+    },
+    "PA-78": {
+      "primary_class": "C7",
+      "checks": [
+        "C7.3",
+        "C7.4"
+      ]
+    },
+    "PA-79": {
+      "primary_class": "C7",
+      "checks": [
+        "C7.2",
+        "C7.7"
+      ]
+    },
+    "PA-80": {
+      "primary_class": "C22",
+      "checks": [
+        "C22.1"
+      ]
+    },
+    "PA-81": {
+      "primary_class": "C20",
+      "checks": [
+        "C19.5",
+        "C20.5"
+      ]
+    },
+    "PA-82": {
+      "primary_class": "C20",
+      "checks": [
+        "C20.5"
+      ]
+    },
+    "PA-83": {
+      "primary_class": "C23",
+      "checks": [
+        "C23.4"
+      ]
+    },
+    "PA-84": {
+      "primary_class": "C23",
+      "checks": [
+        "C23.2",
+        "C23.4",
+        "C23.5"
+      ]
+    },
+    "PA-85": {
+      "primary_class": "C24",
+      "checks": [
+        "C24.5",
+        "C24.6"
+      ]
+    },
+    "PA-86": {
+      "primary_class": "C23",
+      "checks": [
+        "C23.7"
+      ]
+    },
+    "PA-87": {
+      "primary_class": "C12",
+      "checks": [
+        "C12.4"
+      ]
+    },
+    "PA-88": {
+      "primary_class": "C12",
+      "checks": [
+        "C11.2",
+        "C12.2",
+        "C12.3"
+      ]
+    },
+    "PA-89": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.2",
+        "C14.6"
+      ]
+    },
+    "PA-90": {
+      "primary_class": "C9",
+      "checks": [
+        "C9.1",
+        "C9.3"
+      ]
+    },
+    "PA-91": {
+      "primary_class": "C9",
+      "checks": [
+        "C9.2",
+        "C9.4"
+      ]
+    },
+    "PA-92": {
+      "primary_class": "C9",
+      "checks": [
+        "C9.4",
+        "C11.6"
+      ]
+    },
+    "PA-93": {
+      "primary_class": "C10",
+      "checks": [
+        "C10.4",
+        "C10.5"
+      ]
+    },
+    "PA-94": {
+      "primary_class": "C16",
+      "checks": [
+        "C16.2",
+        "C16.3"
+      ]
+    },
+    "PA-95": {
+      "primary_class": "C25",
+      "checks": [
+        "C25.1",
+        "C25.3"
+      ]
+    },
+    "PA-96": {
+      "primary_class": "C8",
+      "checks": [
+        "C7.3",
+        "C8.2",
+        "C8.3",
+        "C8.4"
+      ]
+    },
+    "PA-97": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.3"
+      ]
+    },
+    "PA-98": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.4"
+      ]
+    },
+    "PA-99": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.4"
+      ]
+    },
+    "PA-100": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.3",
+        "C14.4"
+      ]
+    },
+    "PA-101": {
+      "primary_class": "C14",
+      "checks": [
+        "C12.4",
+        "C14.3",
+        "C14.5"
+      ]
+    },
+    "PA-102": {
+      "primary_class": "C1",
+      "checks": [
+        "C1.1",
+        "C1.2"
+      ]
+    },
+    "PA-103": {
+      "primary_class": "C15",
+      "checks": [
+        "C15.6"
+      ]
+    },
+    "PA-104": {
+      "primary_class": "C17",
+      "checks": [
+        "C17.2",
+        "C17.5",
+        "C27.4"
+      ]
+    },
+    "PA-105": {
+      "primary_class": "C19",
+      "checks": [
+        "C19.7"
+      ]
+    },
+    "PA-106": {
+      "primary_class": "C19",
+      "checks": [
+        "C18.3",
+        "C19.1",
+        "C19.3",
+        "C19.5"
+      ]
+    },
+    "PA-107": {
+      "primary_class": "C19",
+      "checks": [
+        "C19.2",
+        "C19.6"
+      ]
+    },
+    "PA-108": {
+      "primary_class": "C23",
+      "checks": [
+        "C23.8"
+      ]
+    },
+    "PA-109": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.3"
+      ]
+    },
+    "PA-110": {
+      "primary_class": "C11",
+      "checks": [
+        "C11.4"
+      ]
+    },
+    "PA-111": {
+      "primary_class": "C11",
+      "checks": [
+        "C11.4"
+      ]
+    },
+    "PA-112": {
+      "primary_class": "C24",
+      "checks": [
+        "C24.6"
+      ]
+    },
+    "PA-113": {
+      "primary_class": "C2",
+      "checks": [
+        "C1.4",
+        "C2.2"
+      ]
+    },
+    "PA-114": {
+      "primary_class": "C21",
+      "checks": [
+        "C21.1"
+      ]
+    },
+    "PA-115": {
+      "primary_class": "C21",
+      "checks": [
+        "C21.3"
+      ]
+    },
+    "PA-116": {
+      "primary_class": "C26",
+      "checks": [
+        "C14.1",
+        "C18.6",
+        "C26.2"
+      ]
+    },
+    "PA-117": {
+      "primary_class": "C18",
+      "checks": [
+        "C18.6"
+      ]
+    },
+    "PA-118": {
+      "primary_class": "C6",
+      "checks": [
+        "C6.3",
+        "C6.5",
+        "C6.6",
+        "C17.1"
+      ]
+    },
+    "PA-119": {
+      "primary_class": "C16",
+      "checks": [
+        "C16.4",
+        "C18.2"
+      ]
+    },
+    "PA-120": {
+      "primary_class": "C16",
+      "checks": [
+        "C16.4",
+        "C18.2"
+      ]
+    },
+    "PA-121": {
+      "primary_class": "C16",
+      "checks": [
+        "C16.5",
+        "C27.5"
+      ]
+    },
+    "PA-122": {
+      "primary_class": "C16",
+      "checks": [
+        "C16.5",
+        "C27.5"
+      ]
+    },
+    "PA-123": {
+      "primary_class": "C5",
+      "checks": [
+        "C5.1",
+        "C5.2",
+        "C5.3"
+      ]
+    },
+    "PA-124": {
+      "primary_class": "C5",
+      "checks": [
+        "C5.4"
+      ]
+    },
+    "PA-125": {
+      "primary_class": "C8",
+      "checks": [
+        "C8.3"
+      ]
+    },
+    "PA-126": {
+      "primary_class": "C14",
+      "checks": [
+        "C14.6"
+      ]
+    },
+    "PA-127": {
+      "primary_class": "C8",
+      "checks": [
+        "C8.4"
+      ]
+    },
+    "PA-128": {
+      "primary_class": "C13",
+      "checks": [
+        "C13.3"
+      ]
+    },
+    "PA-129": {
+      "primary_class": "C11",
+      "checks": [
+        "C11.5"
+      ]
+    },
+    "PA-130": {
+      "primary_class": "C23",
+      "checks": [
+        "C23.3"
+      ]
+    },
+    "PA-131": {
+      "primary_class": "C8",
+      "checks": [
+        "C8.5"
+      ]
+    },
+    "PA-132": {
+      "primary_class": "C22",
+      "checks": [
+        "C22.6"
+      ]
+    },
+    "PA-133": {
+      "primary_class": "C10",
+      "checks": [
+        "C10.2"
+      ]
+    },
+    "PA-134": {
+      "primary_class": "C26",
+      "checks": [
+        "C26.1"
+      ]
+    },
+    "PA-135": {
+      "primary_class": "C3",
+      "checks": [
+        "C3.6"
+      ]
+    },
+    "PA-136": {
+      "primary_class": "C26",
+      "checks": [
+        "C26.3"
+      ]
+    },
+    "PA-137": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.2",
+        "C22.1",
+        "C26.3",
+        "C27.1"
+      ]
+    },
+    "PA-138": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.1",
+        "C15.4",
+        "C15.6",
+        "C27.4",
+        "C27.6"
+      ]
+    },
+    "PA-139": {
+      "primary_class": "C27",
+      "checks": [
+        "C26.3",
+        "C27.1",
+        "C27.4",
+        "C27.7"
+      ]
+    },
+    "PA-140": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.2",
+        "C15.3",
+        "C27.8"
+      ]
+    },
+    "PA-141": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.3",
+        "C27.7",
+        "C27.8",
+        "C27.9"
+      ]
+    },
+    "PA-142": {
+      "primary_class": "C27",
+      "checks": [
+        "C27.2",
+        "C27.7",
+        "C27.8",
+        "C27.10"
+      ]
+    },
+    "PA-143": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.2",
+        "C25.2",
+        "C26.2",
+        "C27.1",
+        "C27.2",
+        "C27.4",
+        "C27.7",
+        "C27.11"
+      ]
+    },
+    "PA-144": {
+      "primary_class": "C27",
+      "checks": [
+        "C27.5",
+        "C27.9",
+        "C27.10",
+        "C27.11",
+        "C27.12"
+      ]
+    },
+    "PA-145": {
+      "primary_class": "C27",
+      "checks": [
+        "C27.7",
+        "C27.8",
+        "C27.13"
+      ]
+    },
+    "PA-146": {
+      "primary_class": "C27",
+      "checks": [
+        "C26.3",
+        "C27.1",
+        "C27.8",
+        "C27.9",
+        "C27.13",
+        "C27.14"
+      ]
+    },
+    "PA-147": {
+      "primary_class": "C27",
+      "checks": [
+        "C26.3",
+        "C27.10",
+        "C27.12",
+        "C27.14",
+        "C27.15"
+      ]
+    },
+    "PA-148": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.2",
+        "C17.5",
+        "C18.1",
+        "C27.5",
+        "C27.6",
+        "C27.16"
+      ]
+    },
+    "PA-149": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.4",
+        "C15.6",
+        "C19.6",
+        "C27.15",
+        "C27.17"
+      ]
+    },
+    "PA-150": {
+      "primary_class": "C27",
+      "checks": [
+        "C16.5",
+        "C18.1",
+        "C19.6",
+        "C27.5",
+        "C27.18"
+      ]
+    },
+    "PA-151": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.2",
+        "C17.2",
+        "C17.5",
+        "C25.3",
+        "C27.5",
+        "C27.12",
+        "C27.17",
+        "C27.19"
+      ]
+    },
+    "PA-152": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.4",
+        "C15.6",
+        "C16.3",
+        "C27.16",
+        "C27.19",
+        "C27.20"
+      ]
+    },
+    "PA-153": {
+      "primary_class": "C27",
+      "checks": [
+        "C15.2",
+        "C17.5",
+        "C27.11",
+        "C27.16",
+        "C27.19",
+        "C27.21"
+      ]
+    },
+    "PA-154": {
+      "primary_class": "C27",
+      "checks": [
+        "C27.16",
+        "C27.18",
+        "C27.19",
+        "C27.21",
+        "C27.22"
+      ]
+    },
+    "PA-155": {
+      "primary_class": "C27",
+      "checks": [
+        "C26.3",
+        "C27.1",
+        "C27.13",
+        "C27.23"
+      ]
+    }
+  },
+  "best_practices": {
+    "BP-1": {
+      "checks": [],
+      "applies_to": "every check: hand-rolled time handling and library misuse are judged against data/libraries.json"
+    },
+    "BP-2": {
+      "checks": [
+        "C15.4",
+        "C26.3",
+        "C27.4",
+        "C27.7",
+        "C27.8",
+        "C27.9",
+        "C27.10",
+        "C27.12",
+        "C27.13",
+        "C27.14",
+        "C27.15",
+        "C27.16",
+        "C27.17",
+        "C27.19",
+        "C27.20",
+        "C27.21",
+        "C27.22"
+      ]
+    },
+    "BP-3": {
+      "checks": [
+        "C2.1",
+        "C8.1",
+        "C15.1",
+        "C15.2",
+        "C16.3",
+        "C18.1",
+        "C19.2",
+        "C19.4",
+        "C22.1",
+        "C25.3",
+        "C27.5",
+        "C27.16",
+        "C27.18",
+        "C27.24"
+      ]
+    },
+    "BP-4": {
+      "checks": [
+        "C27.1",
+        "C27.11"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C4.4",
+    "C4.5"
+  ],
+  "expected_prescan": [
+    "C4.4"
+  ],
+  "expect_json": true,
+  "notes": "Settlement skips only Saturday and Sunday for every exchange and ignores holidays. Saudi and Israeli markets use other weeks."
+}

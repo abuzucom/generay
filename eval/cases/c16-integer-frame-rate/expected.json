@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C16.4"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "NTSC masters run at 30000/1001 fps. Captions drift 3.6 seconds per hour of broadcast."
+}

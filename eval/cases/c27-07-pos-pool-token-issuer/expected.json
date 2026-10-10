@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.7"
+  ],
+  "expected_prescan": [
+    "C27.7"
+  ],
+  "expect_json": true,
+  "notes": "An audit and token service syncs only from the public pool."
+}

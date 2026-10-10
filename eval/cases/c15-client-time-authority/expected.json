@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C15.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Payment-relevant expiry is decided by a client-supplied clock. Setting the device clock back redeems expired vouchers."
+}

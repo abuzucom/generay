@@ -1,0 +1,17 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.1",
+    "C27.8",
+    "C27.7"
+  ],
+  "expected_prescan": [
+    "C22.4",
+    "C27.13",
+    "C27.7",
+    "C27.8"
+  ],
+  "expect_json": true,
+  "notes": "Token validity rests on one unauthenticated, unvalidated SNTP reply."
+}

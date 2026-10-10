@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.7",
+    "C27.15"
+  ],
+  "expected_prescan": [
+    "C27.15"
+  ],
+  "expect_json": true,
+  "notes": "One unauthenticated server and an accuracy claim with no stated source or bound."
+}
