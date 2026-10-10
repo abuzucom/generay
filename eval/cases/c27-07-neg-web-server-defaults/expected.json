@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: NONE-FOUND",
+  "expected_checks": [],
+  "expected_prescan": [
+    "C27.7"
+  ],
+  "expect_json": true,
+  "notes": "Ordinary host on distribution defaults."
+}

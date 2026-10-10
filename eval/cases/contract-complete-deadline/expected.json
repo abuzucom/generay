@@ -1,0 +1,8 @@
+{
+  "mode": "Contract",
+  "expected_verdict": "CONTRACT: COMPLETE",
+  "expected_checks": [],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Every time decision is stated."
+}

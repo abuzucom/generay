@@ -1,0 +1,135 @@
+{
+  "note": "Files copied from abuzucom/euler at the commit below, then adapted for generay. upstream_sha256 is the hash of the upstream file at that commit. Diff against upstream before re-importing.",
+  "upstream_repo": "abuzucom/euler",
+  "upstream_commit": "014c654febc5d846ea7f50d32c6f2f11eee6bdaf",
+  "files": {
+    ".github/dependabot.yml": {
+      "upstream_path": ".github/dependabot.yml",
+      "upstream_sha256": "264fcf1488b0dcc6536acb0b169f4a3fe244b00f4010ca0641f2d2b554f964e2"
+    },
+    ".github/workflows/ci.yml": {
+      "upstream_path": ".github/workflows/ci.yml",
+      "upstream_sha256": "53a28e58e0f51d748cf94d8fa8d5e6545fff9e7264974b422c536d3b28de6731"
+    },
+    ".github/workflows/codeql.yml": {
+      "upstream_path": ".github/workflows/codeql.yml",
+      "upstream_sha256": "92ff1007ba48fe9508e49a2591da8aefba43117e0c0a69a8503f4e47672a5e85"
+    },
+    ".github/workflows/scheduled-validation.yml": {
+      "upstream_path": ".github/workflows/scheduled-validation.yml",
+      "upstream_sha256": "71675508d8cb80375cc6d91963f1f4504aa1158c6cf475357dbb2f24fb20925a"
+    },
+    ".github/workflows/time-review-pr.yml": {
+      "upstream_path": ".github/workflows/quality-review-pr.yml",
+      "upstream_sha256": "82f1e5df7fb4142d6471851dd9fce6838673a18334fb57374db7822569ebda7e"
+    },
+    ".github/workflows/time-review.yml": {
+      "upstream_path": ".github/workflows/quality-review.yml",
+      "upstream_sha256": "5e9b0d7d360e02923ace235106d411b5463c8484eb719f42a2c0f48c1cdacc4d"
+    },
+    ".yamllint.yml": {
+      "upstream_path": ".yamllint.yml",
+      "upstream_sha256": "2dbe52585599c247fd5842aea484b3a5267db0466707d2be20b1da9f4197b766"
+    },
+    "AGENTS.md": {
+      "upstream_path": "AGENTS.md",
+      "upstream_sha256": "ecc0f7098ed1a578dd4bf67f372da92624db243cccf48ebd8c094cc2fa4287af"
+    },
+    "Makefile": {
+      "upstream_path": "Makefile",
+      "upstream_sha256": "bfcc9e5d1702f84bdd492708eba90625c0da5cf8f8c4e11d6034d380a18955ee"
+    },
+    "ci/__init__.py": {
+      "upstream_path": "ci/__init__.py",
+      "upstream_sha256": "a4be12368001faff2bc96c5fc6cd3abf93f0aa17532d1d6e646286ba9e444c51"
+    },
+    "ci/build_pr_case.py": {
+      "upstream_path": "ci/build_pr_case.py",
+      "upstream_sha256": "2571bd99a1662ac11daa5dfb1bf067fe0ef7784aab96d1c31fd00a5ed5ce75ec"
+    },
+    "ci/call_model.py": {
+      "upstream_path": "ci/call_model.py",
+      "upstream_sha256": "688b64a61cf21807ed3d645a82466518fae2a30018e24572a40f49609b498b5b"
+    },
+    "ci/check_review_response.py": {
+      "upstream_path": "ci/check_review_response.py",
+      "upstream_sha256": "f624f61b7c10c6ca712383e79d302b62d76ff22400fc122d77d7f77f8fef623c"
+    },
+    "ci/model_providers.json": {
+      "upstream_path": "ci/model_providers.json",
+      "upstream_sha256": "54c69a33768f52b1aa7b4ba0d9398ef7063554e688bffa3b4f81b7d514e2d467"
+    },
+    "ci/run_review.py": {
+      "upstream_path": "ci/run_review.py",
+      "upstream_sha256": "b07b7769c50f5f71b1a40aaacd593c885a9ee46e2129dbdd07dd9cb497b28b21"
+    },
+    "eval/README.md": {
+      "upstream_path": "eval/README.md",
+      "upstream_sha256": "2181d9685590f676ea3f27e0f98ab1ef0b7d2d901b85e7f28c32e2520ed87eac"
+    },
+    "eval/run_eval.py": {
+      "upstream_path": "eval/run_eval.py",
+      "upstream_sha256": "15e81f14d3a523259a70b0e4a6333cd6f804c833dfb5fd0ca71b87b3d5136853"
+    },
+    "mypy.ini": {
+      "upstream_path": "mypy.ini",
+      "upstream_sha256": "498740e9af29c7e8f1d167178da9508b6435fc5aa2f3dcad37f70fd28347ab53"
+    },
+    "requirements-dev.txt": {
+      "upstream_path": "requirements-dev.txt",
+      "upstream_sha256": "17ddf99fd00f72db8ed1707360c3aee63a664e4b00a08051ef8e1c72807fa8f1"
+    },
+    "ruff.toml": {
+      "upstream_path": "ruff.toml",
+      "upstream_sha256": "1e85d7f273cb51be386a8936708e94a91eb5925718bb7f7936b26742e6c9876f"
+    },
+    "ruff.warn.toml": {
+      "upstream_path": "ruff.warn.toml",
+      "upstream_sha256": "b2aae2e79a63fdd8f2e2588dfc226ed5c5bfc631dff929d6efaaad8e972735df"
+    },
+    "scripts/check_doc_policy.py": {
+      "upstream_path": "scripts/check_quality_policy.py",
+      "upstream_sha256": "99382050b38d36c94e7170b5a7d84350732df80b35896048e6561a298f126b78"
+    },
+    "scripts/review_envelope.py": {
+      "upstream_path": "scripts/review_envelope.py",
+      "upstream_sha256": "222bf5debd4d8f88d3f26fc0e7f181a5aeaf13fd65607a70d7b58e93e939ebdf"
+    },
+    "scripts/review_report.py": {
+      "upstream_path": "scripts/review_report.py",
+      "upstream_sha256": "93eea4ddce5192387ca9154f8348a39888d5ab70ae4f154a1bf84653da1e39a5"
+    },
+    "scripts/time_checks/common.py": {
+      "upstream_path": "scripts/quality_checks/common.py",
+      "upstream_sha256": "63e1a414d09fd0c77bad8ecf709a9b021e81cdb3993ae5269ff59e11fe794882"
+    },
+    "scripts/time_checks/parser_limits.py": {
+      "upstream_path": "scripts/quality_checks/parser_limits.py",
+      "upstream_sha256": "93944e200eeb832b984a7fec591d95dec352ff59a682da254f3c0134ee23ebbf"
+    },
+    "tests/test_check_doc_policy.py": {
+      "upstream_path": "tests/test_check_quality_policy.py",
+      "upstream_sha256": "82969ff6f0ed20dda68cb33ad61e7032304ff141b23dad6cb188b5eccdccb309"
+    },
+    "tests/test_ci_build_pr_case.py": {
+      "upstream_path": "tests/test_ci_build_pr_case.py",
+      "upstream_sha256": "bdd3e4f67751cad3c9ba10224cea3baa689e66567e89cff5169a576e0b98144b"
+    },
+    "tests/test_ci_call_model.py": {
+      "upstream_path": "tests/test_ci_call_model.py",
+      "upstream_sha256": "545a5609ece099d6fd7a996ed72144dcf7c3996d44f7c96cc33776c616d869b4"
+    },
+    "tests/test_ci_check_review_response.py": {
+      "upstream_path": "tests/test_ci_check_review_response.py",
+      "upstream_sha256": "f3fbda202a8be0bbbd754aa224cab392468f600f7e3d1c3ba8e3f7657f9992be"
+    },
+    "tests/test_ci_run_review.py": {
+      "upstream_path": "tests/test_ci_run_review.py",
+      "upstream_sha256": "dbaa31b38f177897e6b70cc0126b929d2061ea2664b97d9d54cb2c35975971a0"
+    },
+    "tests/test_run_eval.py": {
+      "upstream_path": "tests/test_run_eval.py",
+      "upstream_sha256": "4259953d9021b3c50575f56c5ab1bd64f0b13026b67f264b241f879c4a333b6e"
+    }
+  }
+}

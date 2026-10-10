@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.5"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Alignment is measured once. Loss of the reference is never detected and drift goes unreported."
+}

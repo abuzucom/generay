@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/abuzucom/generay/data/libraries.schema.json",
+  "title": "Favored time library registry",
+  "description": "Maintained registry of trusted time and date libraries (BP-1). The review reads it instead of guessing. Using a listed alternative or an unlisted library is not a finding.",
+  "type": "object",
+  "required": ["schema_version", "entries"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["1"]},
+    "note": {"type": "string"},
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["language", "preferred", "alternatives"],
+        "additionalProperties": false,
+        "properties": {
+          "language": {"type": "string", "pattern": "^[a-z][a-z0-9+#-]*$"},
+          "runtime_platform": {"type": "array", "items": {"type": "string", "pattern": "^[a-z][a-z0-9.+-]*$"}},
+          "system_layer": {
+            "type": "array",
+            "items": {"type": "string", "enum": ["frontend", "backend-api", "database", "queue", "scheduler", "cli", "embedded", "any"]}
+          },
+          "framework": {"type": "array", "items": {"type": "string", "pattern": "^[a-z][a-z0-9.+-]*$"}},
+          "preferred": {"$ref": "#/$defs/library"},
+          "alternatives": {"type": "array", "items": {"$ref": "#/$defs/library"}},
+          "misuse": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "library": {
+      "type": "object",
+      "required": ["name", "repository"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+        "package": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

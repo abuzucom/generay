@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C23.4"
+  ],
+  "expected_prescan": [
+    "C23.4"
+  ],
+  "expect_json": true,
+  "notes": "Python maps 25 to 2025, so a patient born in 1925 is recorded as born in 2025."
+}

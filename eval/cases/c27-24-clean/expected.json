@@ -1,0 +1,11 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: NONE-FOUND",
+  "expected_checks": [],
+  "expected_prescan": [
+    "C1.2",
+    "C18.1"
+  ],
+  "expect_json": true,
+  "notes": "Error bound derived from drift and elapsed time."
+}

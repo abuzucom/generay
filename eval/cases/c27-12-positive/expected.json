@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.12",
+    "C27.9"
+  ],
+  "expected_prescan": [
+    "C27.9"
+  ],
+  "expect_json": true,
+  "notes": "Every source is one government's domain and there is no holdover plan."
+}

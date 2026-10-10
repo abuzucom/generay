@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C9.1"
+  ],
+  "expected_prescan": [
+    "C9.1"
+  ],
+  "expect_json": true,
+  "notes": "Naive host-zone now is stored without an offset. Hosts in other zones read a different expiry instant."
+}

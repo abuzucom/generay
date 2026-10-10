@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C20.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "JWT exp is in seconds. Read as milliseconds it lands in January 1970, so every session looks expired and users are logged out."
+}

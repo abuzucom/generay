@@ -1,0 +1,10 @@
+{
+  "mode": "Piece",
+  "expected_verdict": "RISK (partial)",
+  "expected_checks": [
+    "C14.6"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Same-day shipping cutoffs follow the warehouse zone, not the customer's. The requirement does not say whose zone governs."
+}

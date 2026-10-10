@@ -1,0 +1,12 @@
+diff --git a/src/deadline.py b/src/deadline.py
+new file mode 100644
+--- /dev/null
++++ b/src/deadline.py
+@@ -0,0 +1,7 @@
++from datetime import datetime
++
++
++def accepted(submitted_at: datetime, due_date: str) -> bool:
++    """Return True when a tax filing arrives by the end of the due date."""
++    deadline = datetime.fromisoformat(due_date + "T23:59:59+00:00")
++    return submitted_at <= deadline

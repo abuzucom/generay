@@ -1,0 +1,20 @@
+{
+  "schema_version": "1",
+  "note": "Seeded with the entries the maintainer has named. Add languages and architectures only with maintainer approval (BP-1). The review never guesses a trusted library: absent entries mean no preference.",
+  "entries": [
+    {
+      "language": "javascript",
+      "runtime_platform": ["node", "browser"],
+      "system_layer": ["any"],
+      "framework": [],
+      "preferred": {"name": "Luxon", "repository": "moment/luxon", "package": "luxon"},
+      "alternatives": [
+        {"name": "Day.js", "repository": "iamkun/dayjs", "package": "dayjs"}
+      ],
+      "misuse": [
+        "Day.js zone handling without the utc and timezone plugins loaded",
+        "Luxon startOf('week') used where a locale week start is required, without useLocaleWeeks"
+      ]
+    }
+  ]
+}

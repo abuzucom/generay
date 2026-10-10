@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.13",
+    "C27.7"
+  ],
+  "expected_prescan": [
+    "C27.13"
+  ],
+  "expect_json": true,
+  "notes": "AF_INET and a literal IPv4 address cannot sync on IPv6-only mobile networks."
+}

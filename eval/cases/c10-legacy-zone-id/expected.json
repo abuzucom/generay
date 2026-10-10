@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C10.4"
+  ],
+  "expected_prescan": [
+    "C10.4"
+  ],
+  "expect_json": true,
+  "notes": "Asia/Calcutta is a backward link that minimal images do not ship. ZoneInfo raises and reminders fail."
+}

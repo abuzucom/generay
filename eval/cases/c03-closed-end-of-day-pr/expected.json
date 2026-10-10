@@ -1,0 +1,10 @@
+{
+  "mode": "PR",
+  "expected_verdict": "BLOCK",
+  "expected_checks": [
+    "C3.6"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "A closed bound at 23:59:59 rejects filings at 23:59:59.5 that met the deadline. The governing zone is also unstated."
+}

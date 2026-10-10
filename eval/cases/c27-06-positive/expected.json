@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: MEDIUM",
+  "expected_checks": [
+    "C27.6"
+  ],
+  "expected_prescan": [
+    "C27.6"
+  ],
+  "expect_json": true,
+  "notes": "One platform's sync tool used everywhere; macOS, Windows, and containers fail the check."
+}

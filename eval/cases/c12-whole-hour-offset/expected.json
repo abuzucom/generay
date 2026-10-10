@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C12.2",
+    "C14.2"
+  ],
+  "expected_prescan": [
+    "C12.2"
+  ],
+  "expect_json": true,
+  "notes": "Integer hours drop the 30 and 45 minute offsets used by India and Nepal. Hourly billing buckets shift."
+}

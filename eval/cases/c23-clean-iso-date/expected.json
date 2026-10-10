@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: NONE-FOUND",
+  "expected_checks": [],
+  "expected_prescan": [
+    "C24.4"
+  ],
+  "expect_json": true,
+  "notes": "Four-digit ISO dates from a structured input."
+}

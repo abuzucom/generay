@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C18.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Wall-clock subtraction breaks when the clock steps. A backward step blocks resets; a forward step disables the limit."
+}

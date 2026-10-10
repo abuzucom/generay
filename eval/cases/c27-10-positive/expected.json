@@ -1,0 +1,11 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.10",
+    "C27.15"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "A one-time latency pick pins a single source on an authoritative host."
+}

@@ -1,0 +1,8 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: NONE-FOUND",
+  "expected_checks": [],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Rejects LI 3, stratum 0 and 16, and origin mismatches."
+}

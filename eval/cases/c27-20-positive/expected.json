@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.20",
+    "C18.1"
+  ],
+  "expected_prescan": [
+    "C18.1"
+  ],
+  "expect_json": true,
+  "notes": "A GNSS fix time is subtracted from the system clock."
+}

@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C27.19"
+  ],
+  "expected_prescan": [
+    "C27.19"
+  ],
+  "expect_json": true,
+  "notes": "A safety-relevant controller depends on GPS alone with no network source or holdover."
+}

@@ -1,0 +1,8 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: NONE-FOUND",
+  "expected_checks": [],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Sync check behind one interface with an explicit unknown result."
+}

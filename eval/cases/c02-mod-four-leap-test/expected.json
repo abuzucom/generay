@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C2.1"
+  ],
+  "expected_prescan": [
+    "C2.1"
+  ],
+  "expect_json": true,
+  "notes": "The divisible-by-four test treats 2100 as a leap year. Interest accrual on a core path is wrong that year."
+}

@@ -1,0 +1,11 @@
+{
+  "mode": "Contract",
+  "expected_verdict": "CONTRACT: GAPS",
+  "expected_checks": [
+    "C8.2",
+    "C26.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "No offset requirement, precision, or event stated."
+}

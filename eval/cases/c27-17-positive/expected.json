@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: MEDIUM",
+  "expected_checks": [
+    "C27.17",
+    "C27.23"
+  ],
+  "expected_prescan": [
+    "C27.23"
+  ],
+  "expect_json": true,
+  "notes": "Every node reaches the internet for time. There is no internal tier."
+}

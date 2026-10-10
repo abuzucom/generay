@@ -1,0 +1,13 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C22.1",
+    "C22.6"
+  ],
+  "expected_prescan": [
+    "C22.6"
+  ],
+  "expect_json": true,
+  "notes": "MySQL TIMESTAMP ends in 2038 and converts through the session zone. 30-year loan maturities cannot be stored."
+}

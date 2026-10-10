@@ -1,0 +1,11 @@
+{
+  "mode": "Contract",
+  "expected_verdict": "CONTRACT: NEEDS-HUMAN",
+  "expected_checks": [
+    "C4.3",
+    "C26.1"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "The week definition, zone, and send time are not stated."
+}

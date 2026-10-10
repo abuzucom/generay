@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: MEDIUM",
+  "expected_checks": [
+    "C27.7"
+  ],
+  "expected_prescan": [
+    "C27.7"
+  ],
+  "expect_json": true,
+  "notes": "Product image ships the generic pool instead of a registered vendor zone."
+}

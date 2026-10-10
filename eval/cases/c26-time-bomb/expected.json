@@ -1,0 +1,10 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: CRITICAL",
+  "expected_checks": [
+    "C26.2"
+  ],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Undocumented date-triggered deletion of customer data."
+}

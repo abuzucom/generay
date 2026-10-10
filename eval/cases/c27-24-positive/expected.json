@@ -1,0 +1,12 @@
+{
+  "mode": "File",
+  "expected_verdict": "RISK: HIGH",
+  "expected_checks": [
+    "C27.24"
+  ],
+  "expected_prescan": [
+    "C27.24"
+  ],
+  "expect_json": true,
+  "notes": "RTC time is stamped as exact UTC with no error bound, source marking, or reset detection."
+}
