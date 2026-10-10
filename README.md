@@ -49,6 +49,8 @@ Every report ends with a `VERDICT_JSON` line. `TIME.md` defines the schema.
 
 - `make check` runs the policy, coverage, registry, scan, eval structure, policy copy, and unit test targets.
 - `make sync` regenerates the policy copies after an `AGENTS.md` change.
+- `make agents-test`, `make agents-lint`, `make identity`, and `make changelog` run the agents
+  checks. Install `requirements-checkers.txt` first.
 - `make lint` runs ruff, mypy, and yamllint. Install `requirements-dev.txt` first.
 - `python3 scripts/check_time_handling.py all <paths>` runs the scanners.
 - `python3 eval/run_eval.py --model-call ci.call_model:call_model` runs the corpus against a model.

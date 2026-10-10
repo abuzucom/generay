@@ -36,7 +36,7 @@ The following checks exist:
 - `.github/workflows/ci.yml` runs `make lint` on every pull request. ruff and
   mypy cover `scripts/`, `ci/`, and `eval/run_eval.py`. ruff also covers
   `tests/`. yamllint covers `.github/`. Files imported from `abuzucom/agents`
-  sit outside ruff and mypy. `docs/template-drift.md` lists them.
+  sit outside ruff and mypy. `docs/template-drift.md` lists the files.
 - The ruff block tier runs with `--ignore-noqa`. Suppression comments have no
   effect on it.
 - `make check` runs `scripts/check_doc_policy.py` on `TIME.md` and `SYNC.md`
@@ -51,6 +51,14 @@ The following checks exist:
   `expected_prescan` for every case.
 - `make check` runs `scripts/sync.py --check`. It fails when a policy copy
   differs from `AGENTS.md` plus the supporting policy files.
+- `make check` runs `scripts/check_changelog.py` on `CHANGELOG.md`.
+- `make test` runs the imported agents tests with the generay tests. The CI
+  `checks` job installs `requirements-checkers.txt` first.
+- `make lint` runs `make agents-lint`. `lint_style.py`, `check_ascii.py`, and
+  `check_conflict_markers.py` block. The spelling, English, and hedging
+  checkers only warn.
+- `.pre-commit-config.yaml` registers the agents checkers for contributors
+  who install pre-commit. CI does not run pre-commit.
 
 ## Commands
 
@@ -61,6 +69,10 @@ The following checks exist:
 - `make lint` runs ruff, mypy, and yamllint. The tools come from
   `requirements-dev.txt`.
 - `make sync` regenerates the policy copies from `AGENTS.md`.
+- `make agents-test` runs every test through `scripts/run_tests.py`.
+- `make agents-lint` runs the agents prose and style checks.
+- `make identity` reports the Git identity without changes.
+- `make changelog` checks `CHANGELOG.md`.
 
 ## Architecture
 
@@ -82,7 +94,7 @@ The following checks exist:
   scanner change.
 - `CLAUDE.md`, `GEMINI.md`, `CONVENTIONS.md`, `.cursorrules`, `.clinerules`,
   `.windsurfrules`, `.copilot-instructions`, and
-  `.github/copilot-instructions.md`. `make sync` generates them.
+  `.github/copilot-instructions.md`. `make sync` generates the copies.
 - Files imported from `abuzucom/agents` without a drift record in
   `docs/template-drift.md`.
 
