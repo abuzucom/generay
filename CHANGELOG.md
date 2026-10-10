@@ -2,6 +2,11 @@
 
 All changes follow Semantic Versioning. Versions below 1.0.0 are unstable.
 
+## 0.1.1
+
+- Stop the review workflow from checking out `inputs.base_sha`. CodeQL flagged the step as
+  checkout of untrusted code in a privileged context.
+
 ## 0.1.0
 
 - Add `TIME.md` (C1 to C26) and `SYNC.md` (C27) review prompts.

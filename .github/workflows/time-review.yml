@@ -76,12 +76,13 @@ jobs:
       group: time-review-${{ github.repository }}-${{ inputs.pr_number }}
       cancel-in-progress: true
     steps:
-      - name: Checkout base revision
+      - name: Checkout repository history
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
-          ref: ${{ inputs.base_sha }}
-          # Full history brings the same-repository head commit into the
-          # object store without a checkout.
+          # The default workflow_run checkout is the default branch. The
+          # builder reads the base and head commits from git objects, so the
+          # working tree stays unused. Full history brings both commits into
+          # the object store without checking out pull request content.
           fetch-depth: 0
           persist-credentials: false
 
