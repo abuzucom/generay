@@ -47,7 +47,8 @@ Every report ends with a `VERDICT_JSON` line. `TIME.md` defines the schema.
 
 ## Commands
 
-- `make check` runs the policy, coverage, registry, scan, eval structure, and unit test targets.
+- `make check` runs the policy, coverage, registry, scan, eval structure, policy copy, and unit test targets.
+- `make sync` regenerates the policy copies after an `AGENTS.md` change.
 - `make lint` runs ruff, mypy, and yamllint. Install `requirements-dev.txt` first.
 - `python3 scripts/check_time_handling.py all <paths>` runs the scanners.
 - `python3 eval/run_eval.py --model-call ci.call_model:call_model` runs the corpus against a model.
@@ -64,3 +65,9 @@ New or changed checks ship with an `eval/cases/` case.
 
 Review machinery is copied from `abuzucom/euler`. `upstream-files.json`
 records the source path and SHA-256 of each copied file.
+
+Agent policy and tooling come from `abuzucom/agents`. `AGENTS.md` is the
+canonical policy. `make sync` regenerates `CLAUDE.md` and the other tool
+copies. `docs/project-orientation.md` and `docs/repository-orientation.md`
+hold the generay rules and facts. `docs/template-drift.md` records every
+difference from the template.
