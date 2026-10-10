@@ -5,9 +5,9 @@ Each version heading carries its UTC release date. Each date has one entry.
 A same-day change renames that day's heading to the new version and merges
 its items into the entry.
 
-## [0.2.0] (2026-10-10)
+## [0.3.0] (2026-10-10)
 
-This entry merges the same-day releases 0.1.0 and 0.1.1.
+This entry merges the same-day releases 0.1.0, 0.1.1, and 0.2.0.
 
 ### Added
 
@@ -21,6 +21,12 @@ This entry merges the same-day releases 0.1.0 and 0.1.1.
 - Add the `make sync` and `make agents-check` targets. `make check` runs
   `agents-check`.
 - Add `docs/template-drift.md`.
+- Add the portable agents checkers, the prose bundle, the trusted Git and GitHub
+  wrappers, the shard test runner, and the matching tests.
+- Add `requirements-checkers.txt`, `.pre-commit-config.yaml`, and
+  `plan/HANDOFF.md.example`.
+- Add the `agents-test`, `agents-lint`, `identity`, and `changelog` targets.
+  `make check` runs `changelog`. `make lint` runs `agents-lint`.
 - Add `TIME.md` (C1 to C26) and `SYNC.md` (C27) review prompts.
 - Add class drafts, problem notes, best practices, ledger, and library registry.
 - Add deterministic scanners for Python, JavaScript and TypeScript, JVM, Go, .NET,
@@ -32,7 +38,9 @@ This entry merges the same-day releases 0.1.0 and 0.1.1.
 ### Changed
 
 - ruff and mypy skip the files imported from `abuzucom/agents`.
-  `docs/template-drift.md` lists them.
+  `docs/template-drift.md` lists the imported files.
+
+- The CI `checks` job installs `requirements-checkers.txt` before `make check`.
 
 ### Security
 
