@@ -53,16 +53,10 @@ TARGET_FILES = (
     "AGENTS.md",
     "README.md",
     "CHANGELOG.md",
-    "DRIFT.md",
-    "docs/gate-threat-model.md",
-    "docs/pr-security-review.md",
-    "adopters/1a2n-web-visualizer.md",
-    "adopters/prolink-go.md",
+    "docs/project-orientation.md",
+    "docs/repository-orientation.md",
+    "docs/template-drift.md",
     "plan/HANDOFF.md.example",
-    "SECURITY.md.example",
-    "CONTRIBUTING.md.example",
-    ".github/PULL_REQUEST_TEMPLATE.md",
-    ".github/ISSUE_TEMPLATE.md",
 )
 
 DEPENDABOT_LOGIN = "dependabot[bot]"

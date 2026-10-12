@@ -1,6 +1,16 @@
 ---
 extends: default
 
+# Workflows imported from abuzucom/agents keep the template text, because
+# the imported wiring tests read that text literally. docs/template-drift.md
+# records this exclusion.
+ignore: |
+  .github/workflows/agents-compliance.yml
+  .github/workflows/agents-md-compliance.yml
+  .github/workflows/gate-integrity.yml
+  .github/workflows/immutable-conflict-check.yml
+  .github/workflows/sync-check.yml
+
 rules:
   # AGENTS.md caps lines at 120 characters.
   line-length:

@@ -18,7 +18,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 CHECKER_PATH = REPO_ROOT / "scripts" / "check_compliance_tree.py"
 WORKFLOW_PATH = REPO_ROOT / ".github" / "workflows" / "immutable-conflict-check.yml"
 WORKFLOW_ROOT = REPO_ROOT / ".github" / "workflows"
-SYNTHETIC_SECRET = "ghp_" + ("A" * 36)
+# Token-shaped probe for the secret detector. It is not a credential.
+DETECTOR_PROBE_VALUE = "ghp_" + ("A" * 36)
 FULL_SHA = re.compile(r"[0-9a-fA-F]{40}")
 SCANNER_REQUEST_TIMEOUT_SECONDS = 60.0
 _SCANNER_WORKER = None
@@ -224,7 +225,7 @@ class ImmutableComplianceScannerTest(unittest.TestCase):
         with RetryingTemporaryDirectory() as temporary:
             repo = Path(temporary)
             _initialize_repo(repo)
-            _write_file(repo, "docs/security.md", f"token: {SYNTHETIC_SECRET}\n")
+            _write_file(repo, "docs/security.md", f"token: {DETECTOR_PROBE_VALUE}\n")
             _write_file(
                 repo,
                 "scripts/check_compliance_tree.py",
@@ -241,7 +242,7 @@ class ImmutableComplianceScannerTest(unittest.TestCase):
             repo = Path(temporary)
             _initialize_repo(repo)
             path = ".github/workflows/test.yaml"
-            _write_file(repo, path, f"env:\n  TOKEN: {SYNTHETIC_SECRET}\n")
+            _write_file(repo, path, f"env:\n  TOKEN: {DETECTOR_PROBE_VALUE}\n")
             violating_tree = _commit_all(repo, "test: add workflow secret")
             _write_file(repo, path, "name: clean\n")
             _commit_all(repo, "test: clean current tree")
@@ -265,7 +266,7 @@ class ImmutableComplianceScannerTest(unittest.TestCase):
             _initialize_repo(repo)
             link_blob = _run_git(
                 repo, "hash-object", "-w", "--stdin",
-                input_text=SYNTHETIC_SECRET,
+                input_text=DETECTOR_PROBE_VALUE,
             )
             _run_git(repo, "update-index", "--add", "--cacheinfo", f"120000,{link_blob},docs-link")
             _run_git(repo, "commit", "-qm", "test: add symlink blob")
@@ -294,7 +295,7 @@ class ImmutableComplianceScannerTest(unittest.TestCase):
             _initialize_repo(repo)
             path = repo / "docs" / "encoded.txt"
             path.parent.mkdir(parents=True)
-            path.write_bytes(f"token: {SYNTHETIC_SECRET}\n".encode("utf-16-le"))
+            path.write_bytes(f"token: {DETECTOR_PROBE_VALUE}\n".encode("utf-16-le"))
             violating_tree = _commit_all(repo, "test: add encoded secret")
 
             self._assert_detected(repo, violating_tree, "encoded.txt", "secret")

@@ -459,9 +459,12 @@ class PowerShellPolicyTest(unittest.TestCase):
                 self.assertEqual(run_hook(command)[1], expected)
 
     def test_routine_local_operations_pass(self):
-        for command in self.ALLOW:
-            with self.subTest(command=command):
-                self.assertEqual(run_hook(command)[1], "")
+        # A broad read of `.` depends on the working tree, and an adopting
+        # repository can hold protected infrastructure fixtures.
+        with tempfile.TemporaryDirectory() as empty_directory:
+            for command in self.ALLOW:
+                with self.subTest(command=command):
+                    self.assertEqual(run_hook(command, cwd=empty_directory)[1], "")
 
 
 class GitDelegationTest(unittest.TestCase):

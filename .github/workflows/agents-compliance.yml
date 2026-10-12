@@ -1,7 +1,6 @@
----
 name: AGENTS.md Compliance (reusable)
 
-"on":
+on:
   workflow_call:
 
 permissions:

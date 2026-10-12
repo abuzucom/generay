@@ -15,6 +15,16 @@ its items into the entry.
   the hook trace tool, and the remaining agents tests.
 - Add the `sync-check`, `agents-compliance`, `agents-md-compliance`,
   `immutable-conflict-check`, and `gate-integrity` workflows.
+- Add a README Handoffs section.
+
+### Changed
+
+- yamllint ignores the five imported agents workflows. The workflows keep the
+  template text.
+- The broad-read gate tests run in an empty temporary directory. The generay
+  eval corpus holds Terraform fixtures that the gate protects.
+- Rename the token-shaped probe in `tests/test_immutable_compliance.py` to
+  clear CodeQL clear-text storage alerts.
 
 ## [0.3.0] (2026-10-10)
 
