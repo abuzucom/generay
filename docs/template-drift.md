@@ -52,22 +52,40 @@ These policy files match the template byte for byte:
 
 - `requirements-checkers.txt` pins the template version of PyYAML with the
   hashes from `requirements-dev.txt`. The template file carries no hashes.
-- The agents workflows carry yamllint formatting for the generay
-  `yamllint --strict` check. Triggers, steps, pins, and commands match the
-  template. `gate-integrity.yml` runs its label fallback through a Python
-  heredoc instead of one long `python -c` line. The exit status and message
-  match the template.
+- The agents workflows keep the template text. The imported wiring tests read
+  that text literally. `.yamllint.yml` ignores these five workflows, because
+  the template formatting fails the generay `yamllint --strict` check. The
+  active human approved this narrowing of the yamllint scope.
 - `sync-check.yml` names the generay prose files instead of the template
   prose files. It omits the AgentLint step.
+- `scripts/check_agent_prose_gate.py` lists the same generay prose files in
+  `TARGET_FILES`. The template list names files that generay lacks.
+- `README.md` carries a Handoffs section. The imported wiring tests require
+  the handoff wording in the README.
 
 ## Gate set
 
 `complete_gate_adoption.py` installed the hooks and the four client
 configurations in one transaction from `.gate-staging/agents-f255dca`. The
 hooks, `.claude/settings.json`, `.codex/`, `.gemini/settings.json`,
-`.agents/hooks.json`, `shared-files.json`, `hook-coverage-baseline.json`, and
+`.agents/hooks.json`, `hook-coverage-baseline.json`, and
 `tools/hook-trace/sitecustomize.py` match the template byte for byte.
 `sync.py --check-shared` verifies the 28 shared files.
+
+## True drift
+
+The active human approved each test edit below under Rules 3 and 22.
+
+- `tests/test_block_destructive_bash.py`,
+  `tests/test_block_destructive_powershell.py`, and `tests/test_gate_parity.py`
+  run broad reads of `.` in an empty temporary directory. The gate denies a
+  broad read over a tree with protected infrastructure files. The generay eval
+  corpus holds Terraform fixtures under `eval/cases/c27-*`. The template tests
+  read the repository root and therefore fail here. `shared-files.json`
+  records the new hashes of the two shared test files.
+- `tests/test_immutable_compliance.py` names its token-shaped probe
+  `DETECTOR_PROBE_VALUE`. CodeQL reads a `SECRET` identifier as sensitive
+  data and flagged each fixture write. The probe keeps its template value.
 
 ## Local rules
 

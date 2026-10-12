@@ -527,6 +527,30 @@ def _repo_with_config(directory: str, body: str) -> None:
     (git_dir / "config").write_text(body, encoding="utf-8")
 
 
+BROAD_READERS = frozenset({"dir", "find", "get-childitem", "grep", "ls", "rg"})
+
+
+def reads_working_tree(command: str) -> bool:
+    """Return whether a broad reader names the working directory itself.
+
+    The gate walks that directory, so the verdict depends on its contents.
+    """
+    tokens = command.split()
+    return bool(tokens) and tokens[0].casefold() in BROAD_READERS and "." in tokens
+
+
+def run_hook_for(command: str) -> tuple:
+    """Return the hook's verdict, isolating working-tree readers.
+
+    An adopting repository can hold protected infrastructure fixtures, so a
+    command that reads `.` runs in an empty directory instead.
+    """
+    if not reads_working_tree(command):
+        return run_hook(command)
+    with tempfile.TemporaryDirectory() as empty_directory:
+        return run_hook_in(command, empty_directory)
+
+
 def run_hook_in(command: str, cwd: str) -> tuple:
     """Return the hook's (exit code, decision) for `command` run in `cwd`."""
     payload = {
@@ -989,7 +1013,7 @@ class MassOperationTest(unittest.TestCase):
     def test_unbounded_target_sets_ask(self):
         for command in self.ASK:
             with self.subTest(command=command):
-                _, decision = run_hook(command)
+                _, decision = run_hook_for(command)
                 self.assertEqual(decision, "ask")
 
     def test_root_globs_deny(self):
@@ -1002,7 +1026,7 @@ class MassOperationTest(unittest.TestCase):
         for command in ("find . -name '*.py'", "git clean -n",
                         "sed 's/a/b/' src/app.js", "truncate -s 0 one.log"):
             with self.subTest(command=command):
-                _, decision = run_hook(command)
+                _, decision = run_hook_for(command)
                 self.assertEqual(decision, "")
 
 
@@ -1474,5 +1498,5 @@ class CorpusTest(unittest.TestCase):
     def test_every_corpus_row_reaches_its_verdict(self):
         for command, expected, why in gate_corpus.BASH_CASES:
             with self.subTest(command=command, why=why):
-                _, decision = run_hook(command)
+                _, decision = run_hook_for(command)
                 self.assertEqual(decision or gate_corpus.ALLOW, expected)

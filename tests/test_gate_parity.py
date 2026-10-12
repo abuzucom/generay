@@ -223,10 +223,16 @@ class PowerShellPolicyParityTest(unittest.TestCase):
     )
 
     def test_shared_policy_commands_match_expected_verdicts(self):
-        for command, expected in self.CASES:
-            with self.subTest(command=command):
-                self.assertEqual(bash(command), expected)
-                self.assertEqual(powershell(command), expected)
+        # `Get-ChildItem .` reads the working tree, and an adopting repository
+        # can hold protected infrastructure fixtures.
+        with tempfile.TemporaryDirectory() as empty_directory:
+            for command, expected in self.CASES:
+                with self.subTest(command=command):
+                    self.assertEqual(
+                        _decision(BASH_HOOK, "Bash", command, cwd=empty_directory), expected)
+                    self.assertEqual(
+                        _decision(POWERSHELL_HOOK, "PowerShell", command, cwd=empty_directory),
+                        expected)
 
 
 class SharedCommandPolicyParityTest(unittest.TestCase):
