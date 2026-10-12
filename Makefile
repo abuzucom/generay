@@ -124,7 +124,84 @@ AGENTS_IMPORTED = \
 	tests/test_sync_security.py \
 	tests/test_trusted_bot_identities.py \
 	tests/test_trusted_git_state.py \
-	tests/test_worker_timeout_defaults.py
+	tests/test_worker_timeout_defaults.py \
+	scripts/check_gate_adoption.py \
+	scripts/check_gate_pr_integrity.py \
+	scripts/check_hook_launchers.py \
+	scripts/complete_gate_adoption.py \
+	tests/gate_corpus.py \
+	tests/read_only_branch_support.py \
+	tests/retrying_temp_directory.py \
+	tests/test_advisory_workflow_wiring.py \
+	tests/test_block_destructive_bash.py \
+	tests/test_block_destructive_cmd.py \
+	tests/test_block_destructive_powershell.py \
+	tests/test_block_infrastructure_access.py \
+	tests/test_branch_gate_edge_paths.py \
+	tests/test_branch_review_regressions.py \
+	tests/test_branch_validation_boundaries.py \
+	tests/test_branch_validation_bypasses.py \
+	tests/test_branch_validation_contexts.py \
+	tests/test_branch_validation_execution.py \
+	tests/test_branch_validation_failures.py \
+	tests/test_branch_write_destinations.py \
+	tests/test_check_agent_prose_gate.py \
+	tests/test_check_compliance_tree.py \
+	tests/test_check_conflict_markers.py \
+	tests/test_check_gate_adoption.py \
+	tests/test_check_gate_pr_integrity.py \
+	tests/test_check_hook_coverage.py \
+	tests/test_check_hook_launchers.py \
+	tests/test_ci_branch_fixtures.py \
+	tests/test_cloudflare_pages_path_security.py \
+	tests/test_cloudflare_pages_policy.py \
+	tests/test_command_execution_gate.py \
+	tests/test_compaction_directive.py \
+	tests/test_complete_gate_adoption.py \
+	tests/test_dependabot_branch_policy.py \
+	tests/test_enforce_branch_name.py \
+	tests/test_enforce_gate_adoption.py \
+	tests/test_enforce_git_identity.py \
+	tests/test_enforce_git_identity_wording.py \
+	tests/test_external_pr_refs.py \
+	tests/test_external_repo_gate.py \
+	tests/test_fresh_gate_entrypoints.py \
+	tests/test_gate_adoption_transaction.py \
+	tests/test_gate_bypass_regressions.py \
+	tests/test_gate_hardening.py \
+	tests/test_gate_parity.py \
+	tests/test_gate_pr_integrity_timeline.py \
+	tests/test_gh_label_and_method_denial.py \
+	tests/test_gh_option_value_forms.py \
+	tests/test_github_command_denylist.py \
+	tests/test_hook_payload_and_identity.py \
+	tests/test_identity_checker_hardening.py \
+	tests/test_immutable_auth_wiring.py \
+	tests/test_immutable_compliance.py \
+	tests/test_integrity_attribution_scope.py \
+	tests/test_logic_consistency.py \
+	tests/test_master_branch_conversion.py \
+	tests/test_new_runtime_structure.py \
+	tests/test_npm_workflow_gate.py \
+	tests/test_parallel_test_runner.py \
+	tests/test_pipe_gate_list_operators.py \
+	tests/test_plan_write_roots.py \
+	tests/test_platform_policy.py \
+	tests/test_platform_policy_coverage.py \
+	tests/test_policy_size_wiring.py \
+	tests/test_primary_branch_override.py \
+	tests/test_primary_branch_read_only.py \
+	tests/test_reinject_agents_policy.py \
+	tests/test_reinject_policy_supporting.py \
+	tests/test_require_consent.py \
+	tests/test_sync_shared.py \
+	tests/test_temp_root_isolation.py \
+	tests/test_trusted_gh.py \
+	tests/test_trusted_gh_failure_classification.py \
+	tests/test_trusted_gh_temp_isolation.py \
+	tests/test_trusted_git_hardening.py \
+	tests/test_trusted_git_proxy.py \
+	tests/test_windows_drive_paths.py
 
 comma := ,
 empty :=

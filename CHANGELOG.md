@@ -5,6 +5,17 @@ Each version heading carries its UTC release date. Each date has one entry.
 A same-day change renames that day's heading to the new version and merges
 its items into the entry.
 
+## [0.4.0] (2026-10-12)
+
+### Added
+
+- Add the agents hooks and the Claude Code, Codex, Gemini, and Antigravity
+  client configurations through one gate adoption transaction.
+- Add the gate scripts, `shared-files.json`, `hook-coverage-baseline.json`,
+  the hook trace tool, and the remaining agents tests.
+- Add the `sync-check`, `agents-compliance`, `agents-md-compliance`,
+  `immutable-conflict-check`, and `gate-integrity` workflows.
+
 ## [0.3.0] (2026-10-10)
 
 This entry merges the same-day releases 0.1.0, 0.1.1, and 0.2.0.

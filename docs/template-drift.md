@@ -50,29 +50,41 @@ These policy files match the template byte for byte:
 - `CHANGELOG.md` keeps the generay preamble. The headings follow the template
   format.
 
+- `requirements-checkers.txt` pins the template version of PyYAML with the
+  hashes from `requirements-dev.txt`. The template file carries no hashes.
+- The agents workflows carry yamllint formatting for the generay
+  `yamllint --strict` check. Triggers, steps, pins, and commands match the
+  template. `gate-integrity.yml` runs its label fallback through a Python
+  heredoc instead of one long `python -c` line. The exit status and message
+  match the template.
+- `sync-check.yml` names the generay prose files instead of the template
+  prose files. It omits the AgentLint step.
+
+## Gate set
+
+`complete_gate_adoption.py` installed the hooks and the four client
+configurations in one transaction from `.gate-staging/agents-f255dca`. The
+hooks, `.claude/settings.json`, `.codex/`, `.gemini/settings.json`,
+`.agents/hooks.json`, `shared-files.json`, `hook-coverage-baseline.json`, and
+`tools/hook-trace/sitecustomize.py` match the template byte for byte.
+`sync.py --check-shared` verifies the 28 shared files.
+
 ## Local rules
 
 - L1 keeps the generay CI-check rule. Canonical Rule 18 covers gates instead.
 - L2 keeps the generay workflow rule. Canonical Rule 22 covers hooks and the
   banned-model list instead.
 - L3 keeps the `ci/` branch prefix. The template branch checker omits it.
-  `.pre-commit-config.yaml` runs the checker with the template prefixes.
-
-- `requirements-checkers.txt` pins the template version of PyYAML with the
-  hashes from `requirements-dev.txt`. The template file carries no hashes.
-
-## Not adopted yet
-
-- The gate scripts `check_gate_adoption.py`, `complete_gate_adoption.py`,
-  `check_gate_pr_integrity.py`, and `check_hook_launchers.py` arrive with the
-  hooks.
-- Test modules that read hooks, client settings, or agents workflows arrive
-  with those files. `.pre-commit-config.yaml` names the gate adoption check.
-  That pre-commit hook fails until the hooks arrive.
+  `.pre-commit-config.yaml` and the hooks run the checker with the template
+  prefixes.
 
 ## Not adopted
 
 - `docs/agent-policy/source-orientation.md` belongs to the template only.
+- `security-review-pr.yml` and the template `ci/` files. generay keeps its own
+  `ci/` review machinery under the same file names.
+- `tests/test_security_review_wiring.py` covers only `security-review-pr.yml`.
+- The AgentLint action, a third-party dependency.
 
 ## Template findings
 
