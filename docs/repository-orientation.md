@@ -59,6 +59,16 @@ The following checks exist:
   checkers only warn.
 - `.pre-commit-config.yaml` registers the agents checkers for contributors
   who install pre-commit. CI does not run pre-commit.
+- `sync-check.yml` runs the agents test suite on Windows and macOS, the
+  pull request authorship checks, the shared-file manifest check, the gate
+  adoption check, the hook coverage check, and the agents prose checks.
+- `agents-md-compliance.yml` runs `agents-compliance.yml` on pushes to `main`.
+- `immutable-conflict-check.yml` scans pull requests to `main` with the
+  trusted base checker.
+- `gate-integrity.yml` requires the `gate-change-approved` label from a person
+  for protected gate changes.
+- The hooks in `hooks/` gate agent tool calls for Claude Code, Codex, Gemini,
+  and Antigravity. `docs/agent-policy/enforcement.md` lists the coverage limits.
 
 ## Commands
 
