@@ -5,6 +5,15 @@ Each version heading carries its UTC release date. Each date has one entry.
 A same-day change renames that day's heading to the new version and merges
 its items into the entry.
 
+## [0.3.1] (2026-10-13)
+
+### Changed
+
+- Add table headers to every `TIME.md` check class so Markdown renders the
+  tables.
+- Rewrite the `TIME.md` prose sections as single-clause sentences and bullet
+  lists. No check, method, verdict, or severity changes.
+
 ## [0.3.0] (2026-10-10)
 
 This entry merges the same-day releases 0.1.0, 0.1.1, and 0.2.0.
