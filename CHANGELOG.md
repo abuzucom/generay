@@ -5,6 +5,14 @@ Each version heading carries its UTC release date. Each date has one entry.
 A same-day change renames that day's heading to the new version and merges
 its items into the entry.
 
+## [0.5.0] (2026-11-07)
+
+### Added
+
+- Add investigation efficiency and timeout guidance to `TIME.md` and `SYNC.md`.
+- Add trusted timer metadata and timeout evaluation coverage.
+- Include the process guidance directly in `SYNC.md` for agent prompts.
+
 ## [0.3.1] (2026-10-13)
 
 ### Changed

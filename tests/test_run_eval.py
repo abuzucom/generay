@@ -155,5 +155,28 @@ class LiveEvaluationTest(CaseFixture):
         self.assertIn("sha256", envelope["REVIEW_TARGET"])
 
 
+class ReviewTimeoutTest(unittest.TestCase):
+    def test_timeout_metadata_and_status_are_enforced(self) -> None:
+        case_dir = REPO_ROOT / "eval" / "cases" / "active-review-timeout-pr"
+        case = run_eval.load_case(case_dir)
+        envelope = json.loads(run_eval.build_case_text(case, case_dir))
+        self.assertEqual(
+            envelope["TRUSTED_CONTEXT"]["metadata"]["active_work_elapsed_seconds"],
+            600,
+        )
+        response = (
+            "REVIEW STATUS: NEEDS-HUMAN - timeout reached.\n"
+            "VERDICT: NEEDS-HUMAN - active review time limit reached.\n"
+            'VERDICT_JSON: {"schema_version":"1","mode":"PR",'
+            '"verdict":"NEEDS-HUMAN","findings":[],"escalations":[],"prescan":[]}\n'
+        )
+        self.assertEqual(run_eval.evaluate_response(case, response), [])
+        missing_status = response.split("REVIEW STATUS:", 1)[1]
+        self.assertIn(
+            "missing expected review status",
+            " ".join(run_eval.evaluate_response(case, missing_status)),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

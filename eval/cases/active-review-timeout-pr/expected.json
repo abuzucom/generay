@@ -1,0 +1,10 @@
+{
+  "mode": "PR",
+  "expected_verdict": "NEEDS-HUMAN",
+  "expected_checks": [],
+  "expected_prescan": [],
+  "expect_json": true,
+  "notes": "Trusted evaluation metadata reports that the active review budget has elapsed.",
+  "active_work_elapsed_seconds": 600,
+  "expected_review_status": "NEEDS-HUMAN"
+}

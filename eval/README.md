@@ -41,6 +41,7 @@ control. Never derive it from pull request content.
 eval/cases/<slug>/
   diff.patch | input.<ext> | <config file>   the review unit
   context.md                                 optional PR text or selection note
+  hook_context.md                            optional trusted runtime context
   expected.json                              required
 ```
 
@@ -52,6 +53,8 @@ eval/cases/<slug>/
 | `expected_prescan` | Check IDs the scanners must report for the fixture. Empty for PR cases |
 | `expect_json` | `true` requires a parseable `VERDICT_JSON` line |
 | `notes` | Why the verdict holds, for human reviewers |
+| `active_work_elapsed_seconds` | Optional trusted timer value for timeout cases |
+| `expected_review_status` | Optional status line token, currently `NEEDS-HUMAN` |
 
 ## Coverage
 
