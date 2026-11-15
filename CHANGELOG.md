@@ -5,6 +5,13 @@ Each version heading carries its UTC release date. Each date has one entry.
 A same-day change renames that day's heading to the new version and merges
 its items into the entry.
 
+## [0.5.1] (2026-11-15)
+
+### Changed
+
+- Format `eval/run_eval.py` with ruff so the `lint` job passes. No behavior
+  change.
+
 ## [0.5.0] (2026-11-07)
 
 ### Added
