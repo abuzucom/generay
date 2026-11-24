@@ -2,11 +2,15 @@
 
 > **Development moved to `abuzucom/agents-personas`.** This repository
 > receives no further changes. The generay persona lives in
-> [`reviewers/generay/`](https://github.com/abuzucom/agents-personas/tree/main/reviewers/generay) there. New callers
-> use [`.github/workflows/generay-time-review.yml`](https://github.com/abuzucom/agents-personas/blob/main/.github/workflows/generay-time-review.yml).
-> [`docs/migration.md`](https://github.com/abuzucom/agents-personas/blob/main/docs/migration.md) maps the inputs of
-> this repository's `time-review.yml`. Existing pins keep working while this repository
-> stays available.
+> [`reviewers/generay/`][moved-persona] there. New callers use
+> [`.github/workflows/generay-time-review.yml`][moved-wrapper].
+> [`docs/migration.md`][moved-migration] maps the inputs of this
+> repository's `time-review.yml`. Existing pins keep working while this
+> repository stays available.
+
+[moved-persona]: https://github.com/abuzucom/agents-personas/tree/main/reviewers/generay
+[moved-wrapper]: https://github.com/abuzucom/agents-personas/blob/main/.github/workflows/generay-time-review.yml
+[moved-migration]: https://github.com/abuzucom/agents-personas/blob/main/docs/migration.md
 
 time is a four sided cube
 
