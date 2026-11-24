@@ -5,6 +5,13 @@ Each version heading carries its UTC release date. Each date has one entry.
 A same-day change renames that day's heading to the new version and merges
 its items into the entry.
 
+## [0.5.2] (2026-11-24)
+
+### Changed
+- Announce the move to `abuzucom/agents-personas` at the top of the
+  README. The generay persona continues there under `reviewers/generay/`.
+  This repository receives no further changes.
+
 ## [0.5.1] (2026-11-15)
 
 ### Changed
