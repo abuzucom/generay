@@ -1,5 +1,13 @@
 # generay
 
+> **Development moved to `abuzucom/agents-personas`.** This repository
+> receives no further changes. The generay persona lives in
+> [`reviewers/generay/`](https://github.com/abuzucom/agents-personas/tree/main/reviewers/generay) there. New callers
+> use [`.github/workflows/generay-time-review.yml`](https://github.com/abuzucom/agents-personas/blob/main/.github/workflows/generay-time-review.yml).
+> [`docs/migration.md`](https://github.com/abuzucom/agents-personas/blob/main/docs/migration.md) maps the inputs of
+> this repository's `time-review.yml`. Existing pins keep working while this repository
+> stays available.
+
 time is a four sided cube
 
 generay audits time and date handling in code and repositories. It is a
